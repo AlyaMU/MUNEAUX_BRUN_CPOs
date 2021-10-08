@@ -1,5 +1,5 @@
 /*
-* Alya MUNEAUX TDC
+* Alya MUNEAUX, Nathanel GOMEZ TDC
 * TP0 Présentation de Netbeans Exo2
  */
 package tp0_exo2;
