@@ -1,5 +1,5 @@
 /*
- * Alya MUNEAUX TDC
+ * Alya MUNEAUX, Nathanael GOMEZ TDC
  * TP1 : syntaxe de base
  * Exo1 : saisie et manipulation de nombres
  */
