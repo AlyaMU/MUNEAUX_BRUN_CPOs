@@ -1,5 +1,5 @@
 /*
-* Alya MUNEAUX, Chloé HUSSON TDC
+* Alya MUNEAUX, Nathanael GOMEZ TDC
 * TP0 Présentation de Netbeans Exo1
  */
 package exo1;
