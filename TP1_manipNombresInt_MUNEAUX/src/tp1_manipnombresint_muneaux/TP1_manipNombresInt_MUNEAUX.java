@@ -21,18 +21,19 @@ public class TP1_manipNombresInt_MUNEAUX {
         int entier2 = 0;
         int quotient = 0;
         int reste = 0;
-        Scanner valEntier1 = new Scanner(System.in);
-        System.out.println("\n Entrez une valeur entière :");
+        Scanner valEntier1 = new Scanner(System.in); 
+        System.out.println("\n Entrez une valeur entière :"); // on demande à l'utilisateur de saisir une valeur entiere
         entier1 = valEntier1.nextInt(); // on demande a valEntier1 de donner le prochain entier
         Scanner valEntier2 = new Scanner(System.in);
         System.out.println("\n Entrez une valeur entière :");
         entier2 = valEntier2.nextInt(); // on demande a valEntier2 de donner le prochain entier
         System.out.println("La première valeur est : " + entier1);
         System.out.println("La deuxième valeur est : " + entier2);
-        quotient = entier1/entier2;
-        reste = entier1%entier1;
+        quotient = entier1/entier2; //on calcule la division euclidienne des 2 nombre entier saisi, ici on obtiendra le quotient
+        reste = entier1%entier1; // ici on obtiendra le reste
         System.out.println("Le quotient est : " + quotient);
         System.out.println("Le reste est : " + reste);
     }
     
 }
+

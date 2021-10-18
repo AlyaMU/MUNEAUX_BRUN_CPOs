@@ -23,15 +23,15 @@ public class TP1_convertisseur_MUNEAUX {
         String temp1 = "";
         String temp2 = "";
         Scanner valDouble = new Scanner(System.in);
-        System.out.println("Bonjour, saisissez une valeur :");
+        System.out.println("Bonjour, saisissez une valeur :"); // on demande à l'utilisateur de saisir la temperature qu'il souhaite convertir
         temperature = valDouble.nextDouble();
-        System.out.println("Saisissez la conversion que vous souhaitez effectuer : ");
+        System.out.println("Saisissez la conversion que vous souhaitez effectuer : "); // on lui demande de choisir quel conversion il souhaite faire
         System.out.println("1) De Celcius vers Kelvin \n 2) De Kelvin vers Celcius");
         System.out.println("3) De Farenheit vers Celcius \n 4) De Celcius vers Farenheit");
         System.out.println("5) De Kelvin vers Farenheit \n 6) De Farenheit vers Kelvin");
         Scanner valEntier = new Scanner(System.in);
         conversion = valEntier.nextInt();
-        switch (conversion) {
+        switch (conversion) { //En fonction de la conversion souhaité, on dissocie les cas pour appliqué a la temperature initiale la conversion souhaité
             case 1 :
                 resultat = CelsiusVersKelvin(temperature);
                 temp1 = "Celsius";
@@ -63,8 +63,10 @@ public class TP1_convertisseur_MUNEAUX {
                 temp1 = "Farenheit";
                 break;
         }
-        System.out.println(temperature + " " +  temp1 + " est égal à " + resultat + " " + temp2);
+        System.out.println(temperature + " " +  temp1 + " est égal à " + resultat + " " + temp2); // on affiche finalement le nombre choisis au départ avec son unité et son résultats dans l'unité souhaité 
     }
+    
+    // Pour dissocier nos cas on crée des fonctions qui effectueront les conversions 
     public static double CelsiusVersKelvin (double temperature) { 
         double tKelvin;
         tKelvin = temperature + 273.15;
