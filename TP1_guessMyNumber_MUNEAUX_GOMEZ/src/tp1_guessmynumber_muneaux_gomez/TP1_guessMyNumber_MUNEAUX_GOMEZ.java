@@ -18,18 +18,18 @@ public class TP1_guessMyNumber_MUNEAUX_GOMEZ {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Random generateurAleat = new Random();
+        Random generateurAleat = new Random(); // on appel la fonction aléatoire pour pouvoir choisir des nombres aléatoire pour la suite du Tp
         int choixnb = generateurAleat.nextInt(100);
         int nb = 0;
         int compteur = 0;
-        boolean resultat = false;
+        boolean resultat = false; // on initialise une variable booleen qui prend la valeur faux tant que le joueur n'a pas trouvé le bon nombre 
         int niveau;
-        System.out.println("Bonjour, choisissez un mode de difficulté :");
+        System.out.println("Bonjour, choisissez un mode de difficulté :"); // choix de difficulté 
         System.out.println("1) Facile \n 2) Normal \n 3) Difficile ");
         Scanner valEntier = new Scanner(System.in);
-        niveau = valEntier.nextInt();
-        switch (niveau) {
-            case 1 :
+        niveau = valEntier.nextInt(); 
+        switch (niveau) { // on crée une instruction condition switch pour traiter les instruction en fonctions des différents niveau
+            case 1 : // ce cas traite le niveau facile 
                 while (resultat != true) {
                     Scanner ChoixNb = new Scanner(System.in);
                     System.out.println("Saisissez une valeur :");
@@ -47,7 +47,7 @@ public class TP1_guessMyNumber_MUNEAUX_GOMEZ {
                     compteur += 1;
                 }
                 break;
-            case 2 :
+            case 2 : // Ce cas traite le niveau Normal 
                 while (compteur < 20) {
                     Scanner ChoixNb = new Scanner(System.in);
                     System.out.println("Saisissez une valeur :");
@@ -64,7 +64,7 @@ public class TP1_guessMyNumber_MUNEAUX_GOMEZ {
                     compteur += 1;
                 }
                 break;
-            case 3 :
+            case 3 : // Ce cas traite le niveau difficile 
                 while (compteur < 10) {
                     Scanner ChoixNb = new Scanner(System.in);
                     System.out.println("Saisissez une valeur :");
