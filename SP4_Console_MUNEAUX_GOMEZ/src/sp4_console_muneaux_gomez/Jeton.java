@@ -11,25 +11,26 @@ package sp4_console_muneaux_gomez;
 public class Jeton {
     // Attributs :
     
-    String couleur;
+    String couleur; // Couleur affectée au joueur : rouge ou jaune
     
     // Constructeurs :
     
-    public Jeton(String uneCouleur) {
-         if (uneCouleur == "Rouge") {
+    public Jeton(String uneCouleur) { 
+        // On affecte au jeton une des deux couleurs rentrée par le joueur 
+         if (uneCouleur == "Rouge") { // Cas ou la couleur est rouge
              couleur = "Rouge";
          }
-         else if (uneCouleur == "Jaune") {
+         else if (uneCouleur == "Jaune") { // Cas ou la couleur est jaune
              couleur = "Jaune";
          }
-         else {
+         else { // Cas ou ni rouge ni jaune : on affecte automatiquement le rouge
              couleur = "Rouge";
          }
     }
     
     // Méthodes :
     
-    String lireCouleur() {
+    String lireCouleur() { // On renvoie au joueur la couleur de son jeton
         System.out.println("La couleur des jetons est : " + couleur);
         return couleur;
     }
