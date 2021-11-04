@@ -87,13 +87,56 @@ public class Grille {
         return resultat;
     }
     
-    //boolean etreGagnantePourJoueur(Joueur unJoueur) {
-        //String couleur = Joueur.affecterCouleur();
-      //  for(int i = 0; i < 6; i++) { // On vérifie chaque case de la grille
-            //for (int j = 0; j < 7; j ++) {
-                //if (CellulesJeu[i][j] == null) {
-               // }
-           // }
-       // }
-   // }
+    
+    boolean etreGagnantePourJoueur(Joueur unJoueur) {
+        String couleurJeton = unJoueur.Couleur; // On récupère la couleur des jetons à vérifier
+        String couleurCase; // Couleur des jetons sur les cases
+        String couleurTest1;
+        String couleurTest2;
+        String couleurTest3;
+        for(int i = 0; i < 6; i++) { // On vérifie chaque case de la grille
+            for (int j = 0; j < 7; j ++) {
+                couleurCase = CellulesJeu[i][j].lireCouleurDuJeton();
+                if (couleurCase == couleurJeton) {
+                    // On vérifie s'il y a une ligne gagnante
+                    if (j <= 3) { // On délimite la zone où une ligne gagnante est possible
+                        couleurTest1 = CellulesJeu[i][j+1].lireCouleurDuJeton();
+                        couleurTest2 = CellulesJeu[i][j+2].lireCouleurDuJeton();
+                        couleurTest3 = CellulesJeu[i][j+3].lireCouleurDuJeton();
+                        if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            return true;
+                        }
+                    }
+                    // On vérifie s'il y a une colonne gagnante
+                    if (i <= 2) {
+                        couleurTest1 = CellulesJeu[i+1][j].lireCouleurDuJeton();
+                        couleurTest2 = CellulesJeu[i+2][j].lireCouleurDuJeton();
+                        couleurTest3 = CellulesJeu[i+3][j].lireCouleurDuJeton();
+                        if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            return true;
+                        }
+                    }
+                    // On vérifie s'il y a une diagonale montante gagnante
+                    if ((i <= 2) && (j <= 3)) {
+                        couleurTest1 = CellulesJeu[i+1][j+1].lireCouleurDuJeton();
+                        couleurTest2 = CellulesJeu[i+2][j+2].lireCouleurDuJeton();
+                        couleurTest3 = CellulesJeu[i+3][j+3].lireCouleurDuJeton();
+                        if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            return true;
+                        }
+                    }
+                    // On vérifie s'il y a une diagonale descendante gagnante
+                    if ((i > 3) && (j <= 3)) {
+                        couleurTest1 = CellulesJeu[i-1][j+1].lireCouleurDuJeton();
+                        couleurTest2 = CellulesJeu[i-2][j+2].lireCouleurDuJeton();
+                        couleurTest3 = CellulesJeu[i-3][j+3].lireCouleurDuJeton();
+                        if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
