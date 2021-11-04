@@ -14,7 +14,18 @@ public class SP4_Console_MUNEAUX_GOMEZ {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Programme principal
+        
+        // On crée deux joueurs
+        Joueur joueur1 = new Joueur();
+        Joueur joueur2 = new Joueur();
+        
+        // On crée une partie
+        Partie partieEnCours = new Partie();
+        partieEnCours.ListeJoueurs[0] = joueur1;
+        partieEnCours.ListeJoueurs[1] = joueur2;
+        
+        // On initialise la partie avant de la lancer
     }
     
 }
