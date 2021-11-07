@@ -139,4 +139,43 @@ public class Grille {
         }
         return false;
     }
+    
+    void tasserGrille(int uneLigne, int uneColonne) { // Position du jeton supprimé
+        for (int i = uneLigne + 1 ; i < 6; i++) { // On parcourt chaque ligne au dessus 
+            CellulesJeu[i][uneColonne].jetonCourant = CellulesJeu[i-1][uneColonne].jetonCourant;  
+        }
+    }
+    
+    boolean colonneRemplie(int uneColonne) {
+        Cellule colonneTest;
+        for (int i = 0; i < 6; i++) {
+            colonneTest = CellulesJeu[i][uneColonne];
+            if (colonneTest == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    boolean placerTrouNoir(int uneLigne, int uneColonne) {
+        boolean resultat;
+        resultat = CellulesJeu[uneLigne][uneColonne].placerTrouNoir();
+        return resultat;
+    }
+    
+    boolean placerDesintegrateur(int uneLigne, int uneColonne) {
+        boolean resultat;
+        resultat = CellulesJeu[uneLigne][uneColonne].placerDesintegrateur();
+        return resultat;
+    }
+    
+    boolean supprimerJeton(int uneLigne, int uneColonne) {
+        boolean resultat;
+        resultat = CellulesJeu[uneLigne][uneColonne].supprimerJeton();
+        return resultat;
+    }
+    
+    void recupererJeton(int uneLigne, int uneColonne) {
+        CellulesJeu[uneLigne][uneColonne].recupererJeton();
+    }
 }
