@@ -23,7 +23,7 @@ public class Grille {
         }
     }
     
-    boolean ajouterJetonDansColonne(Jeton jetonCourant, int uneColonne) { 
+    boolean ajouterJetonDansColonne(Jeton unJeton, int uneColonne) { 
         // On cherche à ajouter un jeton dans une colonne choisie
         Jeton ligneTest;
         boolean resultat = false;
@@ -31,7 +31,7 @@ public class Grille {
             for (int i = 0; i < 6; i++) { // On teste les différentes lignes de la colonne choisie
                 ligneTest = CellulesJeu[i][uneColonne].jetonCourant;
                 if (ligneTest == null) { // Cas ou la case testée est vide
-                    CellulesJeu[i][uneColonne].affecterJeton(jetonCourant);
+                    CellulesJeu[i][uneColonne].affecterJeton(unJeton);
                     resultat = true;
                     break;
                 }
@@ -50,15 +50,14 @@ public class Grille {
     }
     
     boolean etreRemplie() {
-        boolean resultat = true;
         for(int i = 0; i < 6; i++) { // On vérifie chaque case de la grille
             for (int j = 0; j < 7; j ++) {
-                if (CellulesJeu[i][j] == null) {
-                    resultat = false;
+                if (CellulesJeu[i][j].jetonCourant == null) {
+                    return false;
                 }
             }
         }
-        return resultat;
+        return true;
     }
     
     void viderGrille() {
@@ -94,7 +93,7 @@ public class Grille {
     }
     
     boolean celluleOccupee(int uneLigne, int uneColonne) {
-        Cellule caseTest = CellulesJeu[uneLigne][uneColonne];
+        Jeton caseTest = CellulesJeu[uneLigne][uneColonne].jetonCourant;
         if (caseTest != null) {
             return true;
         }

@@ -9,6 +9,7 @@ package sp4_console_muneaux_gomez;
  * @author Alya
  */
 public class Joueur {
+    
     // Attributs : 
 
     String Nom;
@@ -31,10 +32,29 @@ public class Joueur {
         for(int i=0 ; i<21 ; i++){
             if(ListeJetons[i]==null){ // On cherche une case vide du tableau listant les jetons
                 ListeJetons[i]= unJeton;
-                nombreJetonsRestants = i + 1 ; // On redéfinit le nombre de jeton restants, i + 1 car tableau d'indice 0
+                nombreJetonsRestants = i  ; // On redéfinit le nombre de jeton restants
                 break;
             }
         }
 
+    }
+
+
+    void obtenirDesintegrateur(){ // Incrémentation du nombre de désintégrateurs
+        nombreDesintegrateurs = nombreDesintegrateurs + 1;
+    }
+
+    boolean utiliserDesintegrateur(){ // On enlève un désintégrateur
+
+        boolean Desin;
+        if (nombreDesintegrateurs !=0){
+            nombreDesintegrateurs = nombreDesintegrateurs -1;
+            Desin = true;
+            return Desin;
+        }
+        else {
+            Desin = false;
+            return Desin;
+        }
     }
 }
