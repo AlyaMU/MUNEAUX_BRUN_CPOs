@@ -12,15 +12,15 @@ public class Cellule {
     // Attributs :
     
     Jeton jetonCourant; // Référence vers la cellule avec un jeton, ou vide correspondant
-    Jeton trouNoir; // Indication de la présence d'un trou noir
-    Jeton desintegrateur; // Indication de la présence d'un désintégrateur
+    boolean trouNoir; // Indication de la présence d'un trou noir
+    boolean desintegrateur; // Indication de la présence d'un désintégrateur
 
     // Méthodes :
     
     public Cellule() {
         jetonCourant = null; // Initialise la case vide
-        trouNoir.couleur = "Trou noir";
-        desintegrateur.couleur = "Désintégrateur";
+        trouNoir = false;
+        desintegrateur = false;
     }
     
     boolean affecterJeton(Jeton unJeton) { // On essaye d'ajouter un jeton sur une case
@@ -34,11 +34,8 @@ public class Cellule {
         
     }
     
-    void recupererJeton() {
-        if (jetonCourant != null) { // Si la case selectionnée n'est pas vide
-            // joueurCourant.ajouterJeton(jetonCourant);
-            jetonCourant = null;
-        }
+    Jeton recupererJeton() {
+        return jetonCourant;
     }
     
     boolean supprimerJeton() {
@@ -52,8 +49,8 @@ public class Cellule {
     }
     
     boolean placerTrouNoir() {
-        if (jetonCourant.couleur != "Trou noir") { // On vérfie s'il y a déjà un trou noir
-            jetonCourant = trouNoir;
+        if (trouNoir == false) { // On vérifie s'il y a déjà un trou noir
+            trouNoir = true;
             return true;
         }
         else {
@@ -62,8 +59,8 @@ public class Cellule {
     }
     
     boolean placerDesintegrateur() {
-        if (jetonCourant.couleur != "Désintégrateur") { // On vérfie s'il y a déjà un désintégrateur
-            jetonCourant = desintegrateur;
+        if (desintegrateur == false) { // On vérfie s'il y a déjà un désintégrateur
+            desintegrateur = true;
             return true;
         }
         else {
@@ -73,7 +70,7 @@ public class Cellule {
     }
     
     boolean presenceTrouNoir() {
-        if (jetonCourant.couleur == "Trou noir") { // On vérfie s'il y a un trou noir sur la case
+        if (trouNoir == true) { // On vérfie s'il y a un trou noir sur la case
             return true;
         }
         else {
@@ -82,7 +79,7 @@ public class Cellule {
     }
     
     boolean presenceDesintegrateur() {
-        if (jetonCourant.couleur == "Désintégrateur") { // On vérfie s'il y a un désintégrateur sur la case
+        if (desintegrateur == true) { // On vérfie s'il y a un désintégrateur sur la case
             return true;
         }
         else {
@@ -102,4 +99,24 @@ public class Cellule {
         }
     }
     
+    boolean recupererDesintegrateur() {
+        if (desintegrateur == true) { // On vérifie s'il y a un désintégrateur
+            desintegrateur = false;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    boolean activerTrouNoir() { // On vérifie s'il y a un trou noir
+        if (trouNoir == true) {
+            jetonCourant = null;
+            trouNoir = false;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

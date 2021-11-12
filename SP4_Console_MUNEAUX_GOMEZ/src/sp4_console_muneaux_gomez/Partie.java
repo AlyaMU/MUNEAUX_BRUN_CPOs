@@ -49,7 +49,7 @@ public class Partie {
                         numColonne = numeroColonne.nextInt(); // Le joueur choisit la colonne dans laquelle il place le jeton, on vérifie bien que la colonne existe
                     }
             
-                    // rescol = grilleJeu.ajouterJetonDansColonne(jetonCourant, numColonne); // On vérifie que la colonne n'est pas pleine
+                    //rescol = grilleJeu.ajouterJetonDansColonne(jetonCourant, numColonne); // On vérifie que la colonne n'est pas pleine
                 }
                 resgrill = grilleJeu.etreRemplie(); // On vérifie si la grille est pleine
                 if (resgrill == true){
@@ -69,7 +69,7 @@ public class Partie {
                           numColonne = numeroColonne.nextInt(); 
                       }
 
-                      // rescol = grilleJeu.ajouterJetonDansColonne(jetonCourant, numColonne); 
+                      //rescol = grilleJeu.ajouterJetonDansColonne(jetonCourant, numColonne); 
                   }
                   resgrill = grilleJeu.etreRemplie();
                   if (resgrill == true){

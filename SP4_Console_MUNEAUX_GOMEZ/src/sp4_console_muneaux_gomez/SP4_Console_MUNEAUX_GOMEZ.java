@@ -26,6 +26,23 @@ public class SP4_Console_MUNEAUX_GOMEZ {
         partieEnCours.ListeJoueurs[1] = joueur2;
         
         // On initialise la partie avant de la lancer
+        
+        // Tests intermédiaires
+        
+        
+        Jeton jeton1 = new Jeton("Rouge");
+        Jeton jeton2 = new Jeton("Jaune");
+        Grille grilleJeu = new Grille();
+        grilleJeu.ajouterJetonDansColonne(jeton2, 6);
+        grilleJeu.ajouterJetonDansColonne(jeton1, 0);
+        grilleJeu.ajouterJetonDansColonne(jeton1, 1);
+        grilleJeu.ajouterJetonDansColonne(jeton1, 2);
+        grilleJeu.ajouterJetonDansColonne(jeton1, 3);
+        joueur1.Couleur = "Rouge";
+        boolean placement = grilleJeu.placerTrouNoir(2, 4);
+        System.out.println("Le placement est : " + placement);
+        grilleJeu.etreGagnantePourJoueur(joueur1);
+        grilleJeu.afficherGrilleSurConsole();
     }
     
 }

@@ -18,21 +18,22 @@ public class Grille {
     public Grille() {
         for(int i = 0; i < 6; i++) { // On initialise une grille de cases vides
             for (int j = 0; j < 7; j ++) {
-                CellulesJeu[i][j] = null;
+                CellulesJeu[i][j] = new Cellule();
             }
         }
     }
     
     boolean ajouterJetonDansColonne(Jeton jetonCourant, int uneColonne) { 
         // On cherche à ajouter un jeton dans une colonne choisie
-        Cellule ligneTest;
+        Jeton ligneTest;
         boolean resultat = false;
         if ((uneColonne >= 0) && (uneColonne < 7)) { // On vérifie que la colonne est dans les 7 existantes
             for (int i = 0; i < 6; i++) { // On teste les différentes lignes de la colonne choisie
-                ligneTest = CellulesJeu[i][uneColonne];
+                ligneTest = CellulesJeu[i][uneColonne].jetonCourant;
                 if (ligneTest == null) { // Cas ou la case testée est vide
                     CellulesJeu[i][uneColonne].affecterJeton(jetonCourant);
                     resultat = true;
+                    break;
                 }
                 else if ((i == 5) && (ligneTest != null)) { // Cas où la colonne est remplie
                     System.out.println("La colonne est pleine.");
@@ -69,6 +70,26 @@ public class Grille {
     }
     
     void afficherGrilleSurConsole() {
+        for(int i = 5; i >= 0; i--) {
+            System.out.print("\n");
+            for (int j = 0; j < 7; j ++) {
+                if (CellulesJeu[i][j].trouNoir == true) {
+                    System.out.print("\u001B[30m" + "\u2022" + "\u001B[0m");
+                }
+                else if (CellulesJeu[i][j].jetonCourant == null) {
+                    System.out.print("\u001B[37m" + "\u2022" + "\u001B[0m");
+                }
+                else {
+                    String colJeton = CellulesJeu[i][j].jetonCourant.couleur;
+                    if (colJeton == "Rouge") {
+                    System.out.print("\u001B[31m" + "\u2022" + "\u001B[0m");
+                    }
+                    else if (colJeton == "Jaune") {
+                        System.out.print("\u001B[33m" + "\u2022" + "\u001B[0m");
+                    }
+                }  
+            }
+        }
         
     }
     
@@ -104,6 +125,7 @@ public class Grille {
                         couleurTest2 = CellulesJeu[i][j+2].lireCouleurDuJeton();
                         couleurTest3 = CellulesJeu[i][j+3].lireCouleurDuJeton();
                         if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            System.out.println("Ligne gagnante !");
                             return true;
                         }
                     }
@@ -113,6 +135,7 @@ public class Grille {
                         couleurTest2 = CellulesJeu[i+2][j].lireCouleurDuJeton();
                         couleurTest3 = CellulesJeu[i+3][j].lireCouleurDuJeton();
                         if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            System.out.println("Colonne gagnante !");
                             return true;
                         }
                     }
@@ -122,6 +145,7 @@ public class Grille {
                         couleurTest2 = CellulesJeu[i+2][j+2].lireCouleurDuJeton();
                         couleurTest3 = CellulesJeu[i+3][j+3].lireCouleurDuJeton();
                         if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            System.out.println("Diagonale gagnante !");
                             return true;
                         }
                     }
@@ -131,6 +155,7 @@ public class Grille {
                         couleurTest2 = CellulesJeu[i-2][j+2].lireCouleurDuJeton();
                         couleurTest3 = CellulesJeu[i-3][j+3].lireCouleurDuJeton();
                         if ((couleurCase == couleurTest1) && (couleurCase == couleurTest2) && (couleurCase == couleurTest3)) {
+                            System.out.println("Diagonale gagnante !");
                             return true;
                         }
                     }
