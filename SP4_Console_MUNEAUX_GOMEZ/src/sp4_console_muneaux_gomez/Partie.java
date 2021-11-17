@@ -62,31 +62,129 @@ public class Partie {
            ListeJoueurs[0].nombreJetonsRestants = 21;
        }
        
+       int colHasard;
+       int ligneHasard;
+       for (int i = 0 ; i < 3 ; i++) {
+           colHasard = (int)(Math.random()*6); // On définit un nombre au hasard entre 0 et 6
+           ligneHasard = (int)(Math.random()*5); 
+           grilleJeu.placerDesintegrateur(ligneHasard, colHasard);
+       }
+       
+       for (int i = 0 ; i < 3 ; i++) {
+           colHasard = (int)(Math.random()*6); // On définit un nombre au hasard entre 0 et 6
+           ligneHasard = (int)(Math.random()*5); 
+           grilleJeu.placerTrouNoir(ligneHasard, colHasard);
+       }
+       
     }
     
     void debuterPartie(){ 
         int numColonne = 4;
+        int numLigne;
         boolean rescol = false;
         boolean resgrill;
         boolean partie = false;
         boolean gagnant;
         int nbJetons;
+        int ligneJetonPlace = 0;
         System.out.println("Bienvenue ! La partie va commencer.");
+        grilleJeu.afficherGrilleSurConsole();
         while (partie!= true){ // La partie dure tant que personne n'a gagné ou que la grille n'est pas pleine
             while (joueurCourant == ListeJoueurs[0]){ // Tour du joueur 1
                 System.out.println("\n C'est au tour du Joueur 1");
-                while (rescol!=true){ // On réessaye d'ajouter le jeton tant que son placement sur la grille n'est pas valide
-                    System.out.println("Choix de la colonne");
-                    Scanner numeroColonne = new Scanner(System.in);
-                    System.out.println(" Dans quelle colonne souhaitez-vous mettre votre Jeton ? (Saisissez un nombre entre 0 et 6) ");
-                    numColonne = numeroColonne.nextInt(); // Le joueur choisit la colonne dans laquelle il place le jeton, on vérifie bien que la colonne existe
-                    if ((numColonne >= 0) && (numColonne < 7)) {
-                        nbJetons = ListeJoueurs[0].nombreJetonsRestants;
-                        rescol = grilleJeu.ajouterJetonDansColonne(ListeJoueurs[0].ListeJetons[nbJetons-1], numColonne); 
-                        // On vérifie que la colonne n'est pas pleine et on ajoute, rescol récupère si l'ajout s'est bien passé
-                    }       
+                Scanner choixAction = new Scanner(System.in);
+                System.out.println("Souhaitez vous : \n 1/Placer un jeton ? \n 2/Récupérer un jeton ? \n 3/ Utiliser un désintégrateur ?");
+                int action = choixAction.nextInt();
+                switch (action) {
+                    case 1 :
+                        System.out.println("Ajout d'un jeton");
+                        while (rescol!=true){ // On réessaye d'ajouter le jeton tant que son placement sur la grille n'est pas valide
+                            Scanner numeroColonne = new Scanner(System.in);
+                            System.out.println(" Dans quelle colonne souhaitez-vous mettre votre Jeton ? (Saisissez un nombre entre 0 et 6) ");
+                            numColonne = numeroColonne.nextInt(); // Le joueur choisit la colonne dans laquelle il place le jeton, on vérifie bien que la colonne existe
+                            if ((numColonne >= 0) && (numColonne < 7)) {
+                                nbJetons = ListeJoueurs[0].nombreJetonsRestants;
+                                rescol = grilleJeu.ajouterJetonDansColonne(ListeJoueurs[0].ListeJetons[nbJetons-1], numColonne); 
+                                // On vérifie que la colonne n'est pas pleine et on ajoute, rescol récupère si l'ajout s'est bien passé
+                            }       
+                        }
+                        System.out.println("Fin choix colonne");
+                        for (int i = 0; i < 6; i++) { // On trouve la ligne où le jeton a été placé
+                            boolean testRemplie = grilleJeu.colonneRemplie(numColonne);
+                            if (testRemplie == true) {
+                                ligneJetonPlace = 5;
+                                break;
+                            }
+                            else {
+                                boolean testCellule1 = grilleJeu.celluleOccupee(i, numColonne);
+                                boolean testCellule2 = grilleJeu.celluleOccupee(i+1, numColonne);
+                                if ((testCellule1 == true) && (testCellule2 == false)) {
+                                    ligneJetonPlace = i;
+                                    break;
+                                }
+                            }   
+                        }
+                        System.out.println("Ligne du jeton placé : " + ligneJetonPlace);
+                        Cellule testTrouNoir = grilleJeu.CellulesJeu[ligneJetonPlace][numColonne];
+                        Cellule testDesintegrateur = grilleJeu.CellulesJeu[ligneJetonPlace][numColonne];
+                        boolean recupDesintegrateur;
+                        if (testDesintegrateur.presenceDesintegrateur() == true) {
+                            System.out.println("Vous avez trouvé un désintégrateur !");
+                            recupDesintegrateur = testDesintegrateur.recupererDesintegrateur();
+                            if (recupDesintegrateur == true) {
+                                joueurCourant.obtenirDesintegrateur();
+                            }
+                        }
+                        if (testTrouNoir.presenceTrouNoir() == true) {
+                            System.out.println("Votre jeton s'est fait avaler par un trou noir");
+                            testTrouNoir.activerTrouNoir();
+                        }
+                        grilleJeu.tasserGrille(ligneJetonPlace, numColonne);
+                        break;
+                    case 2 :
+                        System.out.println("Récupération d'un jeton");
+                        Scanner numeroColonne = new Scanner(System.in);
+                        System.out.println(" Dans quelle colonne souhaitez-vous récupérer votre Jeton ? (Saisissez un nombre entre 0 et 6) ");
+                        numColonne = numeroColonne.nextInt();
+                        Scanner numeroLigne = new Scanner(System.in);
+                        System.out.println(" Dans quelle colonne souhaitez-vous récupérer votre Jeton ? (Saisissez un nombre entre 0 et 5) ");
+                        numLigne = numeroLigne.nextInt();
+                        if ((numLigne >= 0) && (numLigne < 6)) {
+                            if ((numColonne >= 0) && (numColonne < 7)) {
+                                Jeton recupJeton = grilleJeu.recupererJeton(numLigne, numColonne);
+                                joueurCourant.ajouterJeton(recupJeton);
+                                boolean jetonSup = grilleJeu.supprimerJeton(numLigne, numColonne);
+                                if (jetonSup == true) {
+                                    System.out.println("Fin récupération jeton");
+                                }
+                            }
+                        }
+                        grilleJeu.tasserGrille(numLigne, numColonne);
+                        break;
+                    case 3 :
+                        System.out.println("Désintégration d'un jeton");
+                        if (joueurCourant.nombreDesintegrateurs != 0) {
+                            Scanner nbColonne = new Scanner(System.in);
+                            System.out.println(" Dans quelle colonne souhaitez-vous désintégrer un Jeton ? (Saisissez un nombre entre 0 et 6) ");
+                            numColonne = nbColonne.nextInt();
+                            Scanner nbLigne = new Scanner(System.in);
+                            System.out.println(" Dans quelle colonne souhaitez-vous désintégrer un Jeton ? (Saisissez un nombre entre 0 et 5) ");
+                            numLigne = nbLigne.nextInt();
+                            if ((numLigne >= 0) && (numLigne < 6)) {
+                                if ((numColonne >= 0) && (numColonne < 7)) {
+                                    boolean jetonDetruit = grilleJeu.supprimerJeton(numLigne, numColonne);
+                                    if (jetonDetruit == true) {
+                                        System.out.println("Fin destruction jeton");
+                                    }
+                                }
+                            }
+                            grilleJeu.tasserGrille(numLigne, numColonne);
+                        }
+                        else {
+                            System.out.println("Veuillez changer d'action.");
+                        }
+                        break;
                 }
-                System.out.println("Fin choix colonne");
                 resgrill = grilleJeu.etreRemplie(); // On vérifie si la grille est pleine
                 if (resgrill == true){
                     System.out.println("Fin de partie, la grille est pleine.");
@@ -105,17 +203,99 @@ public class Partie {
             
             while (joueurCourant == ListeJoueurs[1]){ // Tour du joueur 2
                 System.out.println("\n C'est au tour du Joueur 2");
-                while (rescol!=true){
-                    System.out.println("Choix de la colonne");
-                    Scanner numeroColonne = new Scanner(System.in);
-                    System.out.println("Dans quelle colonne souhaitez-vous mettre votre Jeton ? (Saisissez un nombre entre 0 et 6) ");
-                    numColonne = numeroColonne.nextInt(); 
-                    if ((numColonne >= 0) && (numColonne < 7)) {
-                        nbJetons = ListeJoueurs[1].nombreJetonsRestants;
-                        rescol = grilleJeu.ajouterJetonDansColonne(ListeJoueurs[1].ListeJetons[nbJetons -1], numColonne);
-                    }
+                Scanner choixAction = new Scanner(System.in);
+                System.out.println("Souhaitez vous : \n 1/Placer un jeton ? \n 2/Récupérer un jeton ? \n 3/ Utiliser un désintégrateur ?");
+                int action = choixAction.nextInt();
+                System.out.println(action);
+                switch (action) {
+                    case 1 :
+                       while (rescol!=true){
+                            System.out.println("Choix de la colonne");
+                            Scanner numeroColonne = new Scanner(System.in);
+                            System.out.println("Dans quelle colonne souhaitez-vous mettre votre Jeton ? (Saisissez un nombre entre 0 et 6) ");
+                            numColonne = numeroColonne.nextInt(); 
+                            if ((numColonne >= 0) && (numColonne < 7)) {
+                                nbJetons = ListeJoueurs[1].nombreJetonsRestants;
+                                rescol = grilleJeu.ajouterJetonDansColonne(ListeJoueurs[1].ListeJetons[nbJetons -1], numColonne);
+                            }
+                        }
+                        System.out.println("Fin choix colonne"); 
+                        for (int i = 0; i < 6; i++) { // On trouve la ligne où le jeton a été placé
+                            boolean testRemplie = grilleJeu.colonneRemplie(numColonne);
+                            if (testRemplie == true) {
+                                ligneJetonPlace = 5;
+                                break;
+                            }
+                            else {
+                                boolean testCellule1 = grilleJeu.celluleOccupee(i, numColonne);
+                                boolean testCellule2 = grilleJeu.celluleOccupee(i+1, numColonne);
+                                if ((testCellule1 == true) && (testCellule2 == false)) {
+                                    ligneJetonPlace = i;
+                                    break;
+                                }
+                            }   
+                        }
+                        Cellule testTrouNoir = grilleJeu.CellulesJeu[ligneJetonPlace][numColonne];
+                        Cellule testDesintegrateur = grilleJeu.CellulesJeu[ligneJetonPlace][numColonne];
+                        boolean recupDesintegrateur;
+                        if (testDesintegrateur.presenceDesintegrateur() == true) {
+                            System.out.println("Vous avez trouvé un désintégrateur !");
+                            recupDesintegrateur = testDesintegrateur.recupererDesintegrateur();
+                            if (recupDesintegrateur == true) {
+                                joueurCourant.obtenirDesintegrateur();
+                            }
+                        }
+                        if (testTrouNoir.presenceTrouNoir() == true) {
+                            System.out.println("Votre jeton s'est fait avaler par un trou noir");
+                            testTrouNoir.activerTrouNoir();
+                        }
+                        grilleJeu.tasserGrille(ligneJetonPlace, numColonne);
+                        break;
+                    case 2 :
+                        System.out.println("Récupération d'un jeton");
+                        Scanner numeroColonne = new Scanner(System.in);
+                        System.out.println(" Dans quelle colonne souhaitez-vous récupérer votre Jeton ? (Saisissez un nombre entre 0 et 6) ");
+                        numColonne = numeroColonne.nextInt();
+                        Scanner numeroLigne = new Scanner(System.in);
+                        System.out.println(" Dans quelle colonne souhaitez-vous récupérer votre Jeton ? (Saisissez un nombre entre 0 et 5) ");
+                        numLigne = numeroLigne.nextInt();
+                        if ((numLigne >= 0) && (numLigne < 6)) {
+                            if ((numColonne >= 0) && (numColonne < 7)) {
+                                Jeton recupJeton = grilleJeu.recupererJeton(numLigne, numColonne);
+                                joueurCourant.ajouterJeton(recupJeton);
+                                boolean jetonSup = grilleJeu.supprimerJeton(numLigne, numColonne);
+                                if (jetonSup == true) {
+                                    System.out.println("Fin récupération jeton");
+                                }
+                            }
+                        }
+                        grilleJeu.tasserGrille(numLigne, numColonne);
+                        break;
+                    case 3 :
+                        System.out.println("Désintégration d'un jeton");
+                        if (joueurCourant.nombreDesintegrateurs != 0) {
+                            Scanner nbColonne = new Scanner(System.in);
+                            System.out.println(" Dans quelle colonne souhaitez-vous désintégrer un Jeton ? (Saisissez un nombre entre 0 et 6) ");
+                            numColonne = nbColonne.nextInt();
+                            Scanner nbLigne = new Scanner(System.in);
+                            System.out.println(" Dans quelle colonne souhaitez-vous désintégrer un Jeton ? (Saisissez un nombre entre 0 et 5) ");
+                            numLigne = nbLigne.nextInt();
+                            if ((numLigne >= 0) && (numLigne < 6)) {
+                                if ((numColonne >= 0) && (numColonne < 7)) {
+                                    boolean jetonDetruit = grilleJeu.supprimerJeton(numLigne, numColonne);
+                                    if (jetonDetruit == true) {
+                                        System.out.println("Fin destruction jeton");
+                                    }
+                                }
+                            }
+                            grilleJeu.tasserGrille(numLigne, numColonne);
+                        }
+                        else {
+                            System.out.println("Veuillez changer d'action.");
+                        }
+                        break;
                 }
-                System.out.println("Fin choix colonne");
+                
                 resgrill = grilleJeu.etreRemplie();
                 if (resgrill == true){
                     System.out.println("Fin de partie, la grille est pleine.");
