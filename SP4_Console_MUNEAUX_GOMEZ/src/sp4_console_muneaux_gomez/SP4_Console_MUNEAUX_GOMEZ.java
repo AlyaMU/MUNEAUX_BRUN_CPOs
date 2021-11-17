@@ -4,6 +4,8 @@
  */
 package sp4_console_muneaux_gomez;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Alya
@@ -17,8 +19,15 @@ public class SP4_Console_MUNEAUX_GOMEZ {
         // Programme principal
         
         // On crée deux joueurs
-        Joueur joueur1 = new Joueur();
-        Joueur joueur2 = new Joueur();
+        System.out.println("Bienvenue ! La partie va commencer.");
+        Scanner nomJ1 = new Scanner(System.in);
+        System.out.println("Joueur 1, veuillez rentrer votre nom.");
+        String nomJoueur1 = nomJ1.nextLine();
+        Joueur joueur1 = new Joueur(nomJoueur1);
+        Scanner nomJ2 = new Scanner(System.in);
+        System.out.println("Joueur 2, veuillez rentrer votre nom.");
+        String nomJoueur2 = nomJ2.nextLine();
+        Joueur joueur2 = new Joueur(nomJoueur2);
         
         // On crée une partie
         Partie partieEnCours = new Partie(joueur1, joueur2);

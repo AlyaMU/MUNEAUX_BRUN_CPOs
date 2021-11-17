@@ -27,11 +27,13 @@ public class Grille {
         // On cherche à ajouter un jeton dans une colonne choisie
         Jeton ligneTest;
         boolean resultat = false;
+        boolean testTrouNoir;
         if ((uneColonne >= 0) && (uneColonne < 7)) { // On vérifie que la colonne est dans les 7 existantes
             for (int i = 0; i < 6; i++) { // On teste les différentes lignes de la colonne choisie
                 ligneTest = CellulesJeu[i][uneColonne].jetonCourant;
                 if (ligneTest == null) { // Cas ou la case testée est vide
                     CellulesJeu[i][uneColonne].affecterJeton(unJeton);
+                    System.out.println("Jeton placé");
                     resultat = true;
                     break;
                 }
@@ -73,18 +75,22 @@ public class Grille {
             System.out.print("\n");
             for (int j = 0; j < 7; j ++) {
                 if (CellulesJeu[i][j].trouNoir == true) {
-                    System.out.print("\u001B[30m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;45m" + "\u001B[30m" + "\u2022" + "\u001B[0m");
                 }
+                else if (CellulesJeu[i][j].desintegrateur == true) {
+                    System.out.print("\u001B[0;45m" + "\u001B[1;36m" + "\u2022" + "\u001B[0m");
+                }
+                
                 else if (CellulesJeu[i][j].jetonCourant == null) {
-                    System.out.print("\u001B[37m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;45m" + "\u001B[37m" + "\u2022" + "\u001B[0m");
                 }
                 else {
                     String colJeton = CellulesJeu[i][j].jetonCourant.couleur;
                     if (colJeton == "Rouge") {
-                    System.out.print("\u001B[31m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;45m" + "\u001B[31m" + "\u2022" + "\u001B[0m");
                     }
                     else if (colJeton == "Jaune") {
-                        System.out.print("\u001B[33m" + "\u2022" + "\u001B[0m");
+                        System.out.print("\u001B[0;45m" + "\u001B[1;33m" + "\u2022" + "\u001B[0m");
                     }
                 }  
             }
@@ -165,15 +171,16 @@ public class Grille {
     }
     
     void tasserGrille(int uneLigne, int uneColonne) { // Position du jeton supprimé
-        for (int i = uneLigne + 1 ; i < 6; i++) { // On parcourt chaque ligne au dessus 
-            CellulesJeu[i][uneColonne].jetonCourant = CellulesJeu[i-1][uneColonne].jetonCourant;  
+        for (int i = uneLigne ; i < 5; i++) { // On parcourt chaque ligne au dessus 
+            CellulesJeu[i][uneColonne].jetonCourant = CellulesJeu[i+1][uneColonne].jetonCourant; 
+            CellulesJeu[i+1][uneColonne].jetonCourant=null;
         }
     }
     
     boolean colonneRemplie(int uneColonne) {
-        Cellule colonneTest;
+        Jeton colonneTest;
         for (int i = 0; i < 6; i++) {
-            colonneTest = CellulesJeu[i][uneColonne];
+            colonneTest = CellulesJeu[i][uneColonne].jetonCourant;
             if (colonneTest == null) {
                 return false;
             }
@@ -199,7 +206,7 @@ public class Grille {
         return resultat;
     }
     
-    void recupererJeton(int uneLigne, int uneColonne) {
-        CellulesJeu[uneLigne][uneColonne].recupererJeton();
+    Jeton recupererJeton(int uneLigne, int uneColonne) {
+        return CellulesJeu[uneLigne][uneColonne].recupererJeton();
     }
 }

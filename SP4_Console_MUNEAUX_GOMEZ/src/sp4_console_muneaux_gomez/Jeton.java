@@ -31,7 +31,6 @@ public class Jeton {
     // Méthodes :
     
     String lireCouleur() { // On renvoie au joueur la couleur de son jeton
-        System.out.println("La couleur des jetons est : " + couleur);
         return couleur;
     }
 }

@@ -20,7 +20,7 @@ public class Joueur {
 
     // Méthodes : 
 
-    void Joueur(String UnNom){ // On initialise le nom du joueur
+    public Joueur(String UnNom){ // On initialise le nom du joueur
         Nom = UnNom;
     }
 
