@@ -23,8 +23,10 @@ public class Grille {
         }
     }
     
-    boolean ajouterJetonDansColonne(Jeton unJeton, int uneColonne) { 
+    boolean ajouterJetonDansColonne(Joueur unJoueur, int uneColonne) { 
         // On cherche à ajouter un jeton dans une colonne choisie
+        int nbJetons = unJoueur.nombreJetonsRestants;
+        Jeton unJeton = unJoueur.ListeJetons[nbJetons - 1];
         Jeton ligneTest;
         boolean resultat = false;
         boolean testTrouNoir;
@@ -35,12 +37,12 @@ public class Grille {
                     CellulesJeu[i][uneColonne].affecterJeton(unJeton);
                     System.out.println("Jeton placé");
                     resultat = true;
+                    unJoueur.nombreJetonsRestants -= 1;
                     break;
                 }
                 else if ((i == 5) && (ligneTest != null)) { // Cas où la colonne est remplie
                     System.out.println("La colonne est pleine.");
                     resultat = false;
-
                 }
             }
         }
@@ -75,22 +77,22 @@ public class Grille {
             System.out.print("\n");
             for (int j = 0; j < 7; j ++) {
                 if (CellulesJeu[i][j].trouNoir == true) {
-                    System.out.print("\u001B[0;45m" + "\u001B[30m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;47m" + "\u001B[1;30m" + "\u2022" + "\u001B[0m");
                 }
                 else if (CellulesJeu[i][j].desintegrateur == true) {
-                    System.out.print("\u001B[0;45m" + "\u001B[1;36m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;47m" + "\u001B[1;34m" + "\u2022" + "\u001B[0m");
                 }
                 
                 else if (CellulesJeu[i][j].jetonCourant == null) {
-                    System.out.print("\u001B[0;45m" + "\u001B[37m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;47m" + "\u001B[1;36m" + "\u2022" + "\u001B[0m");
                 }
                 else {
                     String colJeton = CellulesJeu[i][j].jetonCourant.couleur;
                     if (colJeton == "Rouge") {
-                    System.out.print("\u001B[0;45m" + "\u001B[31m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;47m" + "\u001B[1;31m" + "\u2022" + "\u001B[0m");
                     }
                     else if (colJeton == "Jaune") {
-                        System.out.print("\u001B[0;45m" + "\u001B[1;33m" + "\u2022" + "\u001B[0m");
+                        System.out.print("\u001B[0;47m" + "\u001B[1;33m" + "\u2022" + "\u001B[0m");
                     }
                 }  
             }
