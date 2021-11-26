@@ -169,6 +169,7 @@ public class Partie {
                                     System.out.println(" Dans quelle colonne souhaitez-vous récupérer votre Jeton ? (Saisissez un nombre entre 0 et 5) ");
                                     numLigne = numeroLigne.nextInt();
                                     jetonRecupere = recupJeton(numLigne, numColonne);
+                                    joueurCourant.nombreJetonsRestants += 1;
                                 }
                             }
                             else {
@@ -205,11 +206,11 @@ public class Partie {
                 System.out.println("Nombre de jetons du Joueur 1 : " + joueurCourant.nombreJetonsRestants);
                 grilleJeu.afficherGrilleSurConsole();
                 if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true){
-                    System.out.println("VICTOIRE DU JOUEUR 1 !");
+                    System.out.println("VICTOIRE DE : " + joueurCourant.Nom + " !");
                     partie = true;
                 }
                 else if (joueurCourant.nombreJetonsRestants == 0 && joueurCourant.nombreDesintegrateurs == 0) {
-                    System.out.println("Fin de partie, le joueur 2 n'a plus de jetons ou désintégrateurs.");
+                    System.out.println("Fin de partie, le joueur 1 n'a plus de jetons ou désintégrateurs.");
                     partie = true;
                 }
                 else if (grilleJeu.etreRemplie() == true){
@@ -287,6 +288,7 @@ public class Partie {
                                     System.out.println(" Dans quelle colonne souhaitez-vous récupérer votre Jeton ? (Saisissez un nombre entre 0 et 5) ");
                                     numLigne = numeroLigne.nextInt();
                                     jetonRecupere = recupJeton(numLigne, numColonne);
+                                    joueurCourant.nombreJetonsRestants += 1;
                                 }
                             }
                             else {
@@ -319,7 +321,7 @@ public class Partie {
                 System.out.println("Nombre de jetons du Joueur 2 : " + joueurCourant.nombreJetonsRestants);
                 grilleJeu.afficherGrilleSurConsole();
                 if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == true){
-                    System.out.println("VICTOIRE DU JOUEUR 2 !");
+                    System.out.println("VICTOIRE DE : " + joueurCourant.Nom + " !");
                     partie = true;
                 }
                 else if (joueurCourant.nombreJetonsRestants == 0 && joueurCourant.nombreDesintegrateurs == 0) {
