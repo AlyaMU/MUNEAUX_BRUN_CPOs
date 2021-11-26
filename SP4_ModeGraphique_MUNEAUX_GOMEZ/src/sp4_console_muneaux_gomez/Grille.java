@@ -172,10 +172,22 @@ public class Grille {
         return false;
     }
     
-    void tasserGrille(int uneLigne, int uneColonne) { // Position du jeton supprimé
-        for (int i = uneLigne ; i < 5; i++) { // On parcourt chaque ligne au dessus 
-            CellulesJeu[i][uneColonne].jetonCourant = CellulesJeu[i+1][uneColonne].jetonCourant; 
-            CellulesJeu[i+1][uneColonne].jetonCourant=null;
+    void tasserColonne(int uneColonne) {
+        for (int i = 0; i < 6; i++) {
+            if (i == 5) {
+                CellulesJeu[i][uneColonne].jetonCourant = null;
+            }
+            else {
+                if (CellulesJeu[i][uneColonne].jetonCourant == null) {
+                    CellulesJeu[i][uneColonne].jetonCourant = CellulesJeu[i + 1][uneColonne].jetonCourant;
+                    CellulesJeu[i + 1][uneColonne].jetonCourant = null;
+                }
+            }
+        }
+    }
+    void tasserGrille() {
+        for (int i = 0 ; i < 7; i++) { // On parcourt chaque colonne
+            tasserColonne(i);
         }
     }
     

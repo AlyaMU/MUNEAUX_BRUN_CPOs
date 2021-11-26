@@ -175,7 +175,7 @@ public class Partie {
                                 System.out.println("Vous ne possédez pas de jeton sur la grille");
                                 continue;
                             }
-                            grilleJeu.tasserGrille(numLigne, numColonne);
+                            grilleJeu.tasserGrille();
                             break;
                         case 3 :
                             System.out.println("Désintégration d'un jeton");
@@ -189,7 +189,7 @@ public class Partie {
                                     numLigne = nbLigne.nextInt();
                                     jetonDesintegre = desintegrerJeton(numLigne, numColonne);
                                 }
-                                grilleJeu.tasserGrille(numLigne, numColonne);
+                                grilleJeu.tasserGrille();
                             }
                             else {
                                 System.out.println("Veuillez changer d'action.");
@@ -293,7 +293,7 @@ public class Partie {
                                 System.out.println("Vous ne possédez pas de jeton sur la grille");
                                 continue;
                             }
-                            grilleJeu.tasserGrille(numLigne, numColonne);
+                            grilleJeu.tasserGrille();
                             break;
                         case 3 :
                             System.out.println("Désintégration d'un jeton");
@@ -307,7 +307,7 @@ public class Partie {
                                     numLigne = nbLigne.nextInt();
                                     jetonDesintegre = desintegrerJeton(numLigne, numColonne);
                                 }
-                                grilleJeu.tasserGrille(numLigne, numColonne);
+                                grilleJeu.tasserGrille();
                             }
                             else {
                                 System.out.println("Vous ne possédez pas de désintégrateurs. Veuillez changer d'action.");
