@@ -175,7 +175,9 @@ public class Grille {
     void tasserColonne(int uneColonne) {
         for (int i = 0; i < 6; i++) {
             if (i == 5) {
-                CellulesJeu[i][uneColonne].jetonCourant = null;
+                if (CellulesJeu[i-1][uneColonne].jetonCourant == null) {
+                    CellulesJeu[i][uneColonne].jetonCourant = null;
+                }  
             }
             else {
                 if (CellulesJeu[i][uneColonne].jetonCourant == null) {
