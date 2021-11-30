@@ -15,6 +15,7 @@ public class MUNEAUX_BRUN_LightsOut {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        // Wesh la vie
     }
     
 }
