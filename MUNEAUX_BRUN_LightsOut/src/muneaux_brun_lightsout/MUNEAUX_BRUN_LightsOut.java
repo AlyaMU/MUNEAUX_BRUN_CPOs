@@ -15,8 +15,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
      */
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
-        panneau_info_joueurs.setVisible(false);
-        panneau_info_partie.setVisible(false);
+        panneau_chrono_nb_coup.setVisible(false);
+        panneau_nom_bonus.setVisible(false);
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
@@ -34,137 +34,92 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private void initComponents() {
 
         panneau_grille = new javax.swing.JPanel();
-        panneau_difficulte_nom_bonus = new javax.swing.JPanel();
+        panneau_nom_bonus = new javax.swing.JPanel();
         panneau_chrono_nb_coup = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        panneau_difficulteEtDemarrer = new javax.swing.JPanel();
+        btn_Facile = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btn_Demarrer = new javax.swing.JButton();
+        btn_Difficile = new javax.swing.JButton();
+        btn_Moyen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout panneau_grilleLayout = new javax.swing.GroupLayout(panneau_grille);
-        panneau_grille.setLayout(panneau_grilleLayout);
-        panneau_grilleLayout.setHorizontalGroup(
-            panneau_grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
-        );
-        panneau_grilleLayout.setVerticalGroup(
-            panneau_grilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
-        );
-
+        panneau_grille.setLayout(new java.awt.GridLayout());
         getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 590, 570));
 
-        panneau_difficulte_nom_bonus.setBackground(new java.awt.Color(20, 19, 255));
-
-        javax.swing.GroupLayout panneau_difficulte_nom_bonusLayout = new javax.swing.GroupLayout(panneau_difficulte_nom_bonus);
-        panneau_difficulte_nom_bonus.setLayout(panneau_difficulte_nom_bonusLayout);
-        panneau_difficulte_nom_bonusLayout.setHorizontalGroup(
-            panneau_difficulte_nom_bonusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
-        );
-        panneau_difficulte_nom_bonusLayout.setVerticalGroup(
-            panneau_difficulte_nom_bonusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(panneau_difficulte_nom_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 340, 210));
+        panneau_nom_bonus.setBackground(new java.awt.Color(20, 19, 255));
+        panneau_nom_bonus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(panneau_nom_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 340, 210));
 
         panneau_chrono_nb_coup.setBackground(new java.awt.Color(221, 36, 28));
+        panneau_chrono_nb_coup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 340, 210));
 
-        javax.swing.GroupLayout panneau_chrono_nb_coupLayout = new javax.swing.GroupLayout(panneau_chrono_nb_coup);
-        panneau_chrono_nb_coup.setLayout(panneau_chrono_nb_coupLayout);
-        panneau_chrono_nb_coupLayout.setHorizontalGroup(
-            panneau_chrono_nb_coupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
-        );
-        panneau_chrono_nb_coupLayout.setVerticalGroup(
-            panneau_chrono_nb_coupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
-        );
+        panneau_difficulteEtDemarrer.setBackground(new java.awt.Color(51, 255, 51));
+        panneau_difficulteEtDemarrer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, -1, 210));
-
-        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_Facile.setText("Facile");
+        btn_Facile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_FacileActionPerformed(evt);
             }
         });
+        panneau_difficulteEtDemarrer.add(btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, -1));
 
-        jButton2.setText("jButton1");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("jButton1");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Veuillez choisir votre niveau de difficulté");
+        panneau_difficulteEtDemarrer.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, 290, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(19, 19, 19))
-        );
+        btn_Demarrer.setText("Démarrer la partie");
+        btn_Demarrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DemarrerActionPerformed(evt);
+            }
+        });
+        panneau_difficulteEtDemarrer.add(btn_Demarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 130, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 340, 130));
+        btn_Difficile.setText("Difficile");
+        btn_Difficile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DifficileActionPerformed(evt);
+            }
+        });
+        panneau_difficulteEtDemarrer.add(btn_Difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 70, -1));
+
+        btn_Moyen.setText("Moyen");
+        btn_Moyen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MoyenActionPerformed(evt);
+            }
+        });
+        panneau_difficulteEtDemarrer.add(btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 70, -1));
+
+        getContentPane().add(panneau_difficulteEtDemarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 340, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        panneau_info_joueurs.setVisible(true);
-        panneau_info_partie.setVisible(true);
-        initialiserPartie();
-        panneau_grille.repaint();
-        btn_start.setEnabled(false);        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_FacileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FacileActionPerformed
+        Consigne_Difficile difficile = new Consigne_Difficile();
+        btn_Facile.setEnabled(false);
+        btn_Moyen.setEnabled(false);
+        btn_Facile.setEnabled(false);
+    }//GEN-LAST:event_btn_FacileActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_DemarrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DemarrerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_DemarrerActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_DifficileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DifficileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_DifficileActionPerformed
+
+    private void btn_MoyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MoyenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MoyenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,13 +157,14 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btn_Demarrer;
+    private javax.swing.JButton btn_Difficile;
+    private javax.swing.JButton btn_Facile;
+    private javax.swing.JButton btn_Moyen;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panneau_chrono_nb_coup;
-    private javax.swing.JPanel panneau_difficulte_nom_bonus;
+    private javax.swing.JPanel panneau_difficulteEtDemarrer;
     private javax.swing.JPanel panneau_grille;
+    private javax.swing.JPanel panneau_nom_bonus;
     // End of variables declaration//GEN-END:variables
 }
