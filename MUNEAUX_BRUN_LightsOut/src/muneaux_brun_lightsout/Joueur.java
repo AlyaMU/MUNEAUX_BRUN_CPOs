@@ -10,4 +10,14 @@ package muneaux_brun_lightsout;
  */
 public class Joueur {
     
+    // Attributs
+    
+    String nom;
+    int nbcoups;
+    
+    // Méthodes
+    
+    void augmenterCoups() {
+        nbcoups += 1;
+    }
 }

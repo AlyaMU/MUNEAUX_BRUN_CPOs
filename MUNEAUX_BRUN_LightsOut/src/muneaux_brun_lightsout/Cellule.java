@@ -10,4 +10,20 @@ package muneaux_brun_lightsout;
  */
 public class Cellule {
     
+    // Attributs
+    
+    boolean etat;
+    
+    // Méthodes
+    
+    boolean etatCellule() {
+        if (etat == true) {
+            System.out.println("Cellule allumée");
+            return true;
+        }
+        else {
+            System.out.println("Cellule éteinte");
+            return false;
+        }
+    }
 }
