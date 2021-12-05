@@ -15,6 +15,13 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
      */
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
+        panneau_chrono_nb_coup.setVisible(false);
+        panneau_nom_bonus.setVisible(false);
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; j++) {
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
+            }
+        }
     }
 
     /**
@@ -26,21 +33,93 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        panneau_grille = new javax.swing.JPanel();
+        panneau_nom_bonus = new javax.swing.JPanel();
+        panneau_chrono_nb_coup = new javax.swing.JPanel();
+        panneau_difficulteEtDemarrer = new javax.swing.JPanel();
+        btn_Facile = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btn_Demarrer = new javax.swing.JButton();
+        btn_Difficile = new javax.swing.JButton();
+        btn_Moyen = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
+        panneau_grille.setLayout(new java.awt.GridLayout());
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 590, 570));
+
+        panneau_nom_bonus.setBackground(new java.awt.Color(20, 19, 255));
+        panneau_nom_bonus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(panneau_nom_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 340, 210));
+
+        panneau_chrono_nb_coup.setBackground(new java.awt.Color(221, 36, 28));
+        panneau_chrono_nb_coup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 340, 210));
+
+        panneau_difficulteEtDemarrer.setBackground(new java.awt.Color(51, 255, 51));
+        panneau_difficulteEtDemarrer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_Facile.setText("Facile");
+        btn_Facile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_FacileActionPerformed(evt);
+            }
+        });
+        panneau_difficulteEtDemarrer.add(btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, -1));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setText("Veuillez choisir votre niveau de difficulté");
+        panneau_difficulteEtDemarrer.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, 290, -1));
+
+        btn_Demarrer.setText("Démarrer la partie");
+        btn_Demarrer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DemarrerActionPerformed(evt);
+            }
+        });
+        panneau_difficulteEtDemarrer.add(btn_Demarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 130, -1));
+
+        btn_Difficile.setText("Difficile");
+        btn_Difficile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DifficileActionPerformed(evt);
+            }
+        });
+        panneau_difficulteEtDemarrer.add(btn_Difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 70, -1));
+
+        btn_Moyen.setText("Moyen");
+        btn_Moyen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MoyenActionPerformed(evt);
+            }
+        });
+        panneau_difficulteEtDemarrer.add(btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 70, -1));
+
+        getContentPane().add(panneau_difficulteEtDemarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 340, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_FacileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FacileActionPerformed
+        Consigne_Difficile difficile = new Consigne_Difficile();
+        btn_Facile.setEnabled(false);
+        btn_Moyen.setEnabled(false);
+        btn_Facile.setEnabled(false);
+    }//GEN-LAST:event_btn_FacileActionPerformed
+
+    private void btn_DemarrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DemarrerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DemarrerActionPerformed
+
+    private void btn_DifficileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DifficileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_DifficileActionPerformed
+
+    private void btn_MoyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MoyenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MoyenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +157,14 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Demarrer;
+    private javax.swing.JButton btn_Difficile;
+    private javax.swing.JButton btn_Facile;
+    private javax.swing.JButton btn_Moyen;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel panneau_chrono_nb_coup;
+    private javax.swing.JPanel panneau_difficulteEtDemarrer;
+    private javax.swing.JPanel panneau_grille;
+    private javax.swing.JPanel panneau_nom_bonus;
     // End of variables declaration//GEN-END:variables
 }
