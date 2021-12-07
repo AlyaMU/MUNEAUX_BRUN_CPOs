@@ -4,15 +4,18 @@
  */
 package muneaux_brun_lightsout;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author Alya
  */
 public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MUNEAUX_BRUN_LightsOut
-     */
+    
+    int nbSecondes = 0;
+        
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
         panneau_chrono_nb_coup.setVisible(false);
@@ -23,6 +26,16 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
             }
         }
     }
+    
+    ActionListener tache_recurrente = new ActionListener() {
+        public void actionPerformed(ActionEvent e1) {
+            nbSecondes++;
+            txt_chrono.setText(nbSecondes + "");
+        }
+        ;
+        };
+		/* instanciation du timer */
+	Timer monChrono = new Timer(1000, tache_recurrente);
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,7 +48,17 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
 
         panneau_grille = new javax.swing.JPanel();
         panneau_nom_bonus = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         panneau_chrono_nb_coup = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txt_chrono = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         panneau_difficulteEtDemarrer = new javax.swing.JPanel();
         btn_Facile = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -47,18 +70,57 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
-        panneau_grille.setLayout(new java.awt.GridLayout());
+        panneau_grille.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 590, 570));
 
-        panneau_nom_bonus.setBackground(new java.awt.Color(20, 19, 255));
+        panneau_nom_bonus.setBackground(new java.awt.Color(20, 121, 246));
         panneau_nom_bonus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel2.setText("Nom du Joueur :");
+        panneau_nom_bonus.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        jLabel3.setText("Information du Joueur");
+        panneau_nom_bonus.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        jLabel9.setText("jLabel9");
+        panneau_nom_bonus.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel10.setText("Nombre de bonus (Difficile) :");
+        panneau_nom_bonus.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        jLabel11.setText("jLabel11");
+        panneau_nom_bonus.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+
         getContentPane().add(panneau_nom_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 340, 210));
 
-        panneau_chrono_nb_coup.setBackground(new java.awt.Color(221, 36, 28));
+        panneau_chrono_nb_coup.setBackground(new java.awt.Color(221, 56, 31));
         panneau_chrono_nb_coup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        jLabel4.setText("Information de la Partie en cours");
+        panneau_chrono_nb_coup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 300, 20));
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel5.setText("Nombre de Coups :");
+        panneau_chrono_nb_coup.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        jLabel6.setText("Chronomètre :");
+        panneau_chrono_nb_coup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+
+        txt_chrono.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txt_chrono.setText("jLabel7");
+        panneau_chrono_nb_coup.add(txt_chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 50, 40));
+
+        jLabel8.setText("jLabel8");
+        panneau_chrono_nb_coup.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
         getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 340, 210));
 
-        panneau_difficulteEtDemarrer.setBackground(new java.awt.Color(51, 255, 51));
+        panneau_difficulteEtDemarrer.setBackground(new java.awt.Color(153, 255, 153));
         panneau_difficulteEtDemarrer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Facile.setText("Facile");
@@ -70,16 +132,17 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_difficulteEtDemarrer.add(btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("Veuillez choisir votre niveau de difficulté");
-        panneau_difficulteEtDemarrer.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, 290, -1));
+        jLabel1.setText("      Veuillez choisir votre niveau de difficulté    ");
+        panneau_difficulteEtDemarrer.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, 330, -1));
 
+        btn_Demarrer.setBackground(new java.awt.Color(204, 204, 204));
         btn_Demarrer.setText("Démarrer la partie");
         btn_Demarrer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_DemarrerActionPerformed(evt);
             }
         });
-        panneau_difficulteEtDemarrer.add(btn_Demarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 130, -1));
+        panneau_difficulteEtDemarrer.add(btn_Demarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, -1));
 
         btn_Difficile.setText("Difficile");
         btn_Difficile.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +158,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 btn_MoyenActionPerformed(evt);
             }
         });
-        panneau_difficulteEtDemarrer.add(btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 70, -1));
+        panneau_difficulteEtDemarrer.add(btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 80, -1));
 
         getContentPane().add(panneau_difficulteEtDemarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 340, 130));
 
@@ -103,22 +166,33 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_FacileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FacileActionPerformed
-        Consigne_Difficile difficile = new Consigne_Difficile();
+        Consigne_Facile Facile = new Consigne_Facile();
         btn_Facile.setEnabled(false);
         btn_Moyen.setEnabled(false);
         btn_Facile.setEnabled(false);
     }//GEN-LAST:event_btn_FacileActionPerformed
 
     private void btn_DemarrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DemarrerActionPerformed
-        // TODO add your handling code here:
+        btn_Demarrer.setEnabled(false);
+        panneau_chrono_nb_coup.setVisible(true);
+        panneau_nom_bonus.setVisible(true);
+        nbSecondes = 0;
+        txt_chrono.setText(nbSecondes + "");
+        monChrono.start();
     }//GEN-LAST:event_btn_DemarrerActionPerformed
 
     private void btn_DifficileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DifficileActionPerformed
-        // TODO add your handling code here:
+        Consigne_Difficile difficile = new Consigne_Difficile();
+        btn_Facile.setEnabled(false);
+        btn_Moyen.setEnabled(false);
+        btn_Facile.setEnabled(false);
     }//GEN-LAST:event_btn_DifficileActionPerformed
 
     private void btn_MoyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MoyenActionPerformed
-        // TODO add your handling code here:
+        Consigne_Moyen Moyen = new Consigne_Moyen();
+        btn_Facile.setEnabled(false);
+        btn_Moyen.setEnabled(false);
+        btn_Facile.setEnabled(false);
     }//GEN-LAST:event_btn_MoyenActionPerformed
 
     /**
@@ -162,9 +236,19 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private javax.swing.JButton btn_Facile;
     private javax.swing.JButton btn_Moyen;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel panneau_chrono_nb_coup;
     private javax.swing.JPanel panneau_difficulteEtDemarrer;
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_nom_bonus;
+    private javax.swing.JLabel txt_chrono;
     // End of variables declaration//GEN-END:variables
 }

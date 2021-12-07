@@ -23,13 +23,39 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="727" max="-2" attributes="0"/>
+              <EmptySpace pref="119" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="465" max="-2" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="&#x9;&#x9;&#x9;&#x9;Bonjour &#xe0; toi cher joueur !&#xa;&#xa;Voici les r&#xe8;gles du mode de jeu Difficile :&#xa;&#xa;But du jeu :&#xa;&#xa;            - Vous allez avoir des lumi&#xe8;res qui s&apos;allument.&#xa;            - Vous devez &#xe9;teindre toutes les lumi&#xe8;res le plusrapidement possible.&#xa;&#xa;Fonctionnement du jeu :&#xa;           &#xa;&#x9;- Lorsque vous appuyez sur un bouton :&#xa;&#x9;               - Il change d&apos;&#xe9;tat : de &#xe9;teind vers allum&#xe9;  ou d&apos;allum&#xe9; vers &#xe9;teind&#xa;&#x9;               - Ses boutons adjacents changent d&apos;&#xe9;tat &#xe9;galement : celui au dessus, en dessous, &#xe0; droite et &#xe0; gauche&#xa;&#x9;&#x9;&#x9;&#x9;                &#xa;[...]"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
 </Form>
