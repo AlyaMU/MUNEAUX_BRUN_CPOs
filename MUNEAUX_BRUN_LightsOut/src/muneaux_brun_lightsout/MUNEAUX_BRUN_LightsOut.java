@@ -241,6 +241,11 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 new MUNEAUX_BRUN_LightsOut().setVisible(true);
             }
         });
+        
+        // Test des fonctionnalités du code
+    
+        Grille grilleTest = new Grille();
+        grilleTest.afficherGrilleSurConsole();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
