@@ -14,12 +14,16 @@ public class Cellule {
     
     boolean etat;
     boolean bonus;
+    String couleur1;
+    String couleur2;
     
     // Méthodes
     
     public Cellule() {
         etat = false; // Cellule éteinte
         bonus = false;
+        couleur1 = null;
+        couleur2 = null;
     }
     
     boolean etatCellule() {
