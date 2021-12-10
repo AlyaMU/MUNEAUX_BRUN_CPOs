@@ -123,17 +123,17 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_difficulteEtDemarrer.setBackground(new java.awt.Color(153, 255, 153));
         panneau_difficulteEtDemarrer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_Facile.setText("Facile");
+        btn_Facile.setText("Normal");
         btn_Facile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_FacileActionPerformed(evt);
             }
         });
-        panneau_difficulteEtDemarrer.add(btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, -1));
+        panneau_difficulteEtDemarrer.add(btn_Facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setText("      Veuillez choisir votre niveau de difficulté    ");
-        panneau_difficulteEtDemarrer.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, 330, -1));
+        jLabel1.setText("      Veuillez choisir votre mode de jeu :");
+        panneau_difficulteEtDemarrer.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 280, -1));
 
         btn_Demarrer.setBackground(new java.awt.Color(204, 204, 204));
         btn_Demarrer.setText("Démarrer la partie");
@@ -142,25 +142,25 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 btn_DemarrerActionPerformed(evt);
             }
         });
-        panneau_difficulteEtDemarrer.add(btn_Demarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, -1));
+        panneau_difficulteEtDemarrer.add(btn_Demarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 140, -1));
 
-        btn_Difficile.setText("Difficile");
+        btn_Difficile.setText("Fête colorée");
         btn_Difficile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_DifficileActionPerformed(evt);
             }
         });
-        panneau_difficulteEtDemarrer.add(btn_Difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 70, -1));
+        panneau_difficulteEtDemarrer.add(btn_Difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 100, -1));
 
-        btn_Moyen.setText("Moyen");
+        btn_Moyen.setText("Contre-la-montre");
         btn_Moyen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_MoyenActionPerformed(evt);
             }
         });
-        panneau_difficulteEtDemarrer.add(btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 80, -1));
+        panneau_difficulteEtDemarrer.add(btn_Moyen, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 120, -1));
 
-        getContentPane().add(panneau_difficulteEtDemarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 340, 130));
+        getContentPane().add(panneau_difficulteEtDemarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 360, 130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

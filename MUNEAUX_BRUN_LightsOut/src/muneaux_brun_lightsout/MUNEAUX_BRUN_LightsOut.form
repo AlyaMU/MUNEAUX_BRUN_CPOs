@@ -207,7 +207,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="670" y="40" width="340" height="130"/>
+          <AbsoluteConstraints x="650" y="40" width="360" height="130"/>
         </Constraint>
       </Constraints>
 
@@ -217,14 +217,14 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btn_Facile">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Facile"/>
+            <Property name="text" type="java.lang.String" value="Normal"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_FacileActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="50" width="70" height="-1"/>
+              <AbsoluteConstraints x="10" y="50" width="100" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -233,11 +233,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="      Veuillez choisir votre niveau de difficult&#xe9;    "/>
+            <Property name="text" type="java.lang.String" value="      Veuillez choisir votre mode de jeu :"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="6" y="10" width="330" height="-1"/>
+              <AbsoluteConstraints x="40" y="10" width="280" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -253,33 +253,33 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="100" y="90" width="140" height="-1"/>
+              <AbsoluteConstraints x="110" y="90" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btn_Difficile">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Difficile"/>
+            <Property name="text" type="java.lang.String" value="F&#xea;te color&#xe9;e"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_DifficileActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="250" y="50" width="70" height="-1"/>
+              <AbsoluteConstraints x="250" y="50" width="100" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JButton" name="btn_Moyen">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Moyen"/>
+            <Property name="text" type="java.lang.String" value="Contre-la-montre"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_MoyenActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="130" y="50" width="80" height="-1"/>
+              <AbsoluteConstraints x="120" y="50" width="120" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
