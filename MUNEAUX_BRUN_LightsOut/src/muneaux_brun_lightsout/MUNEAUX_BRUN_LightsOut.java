@@ -19,7 +19,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
         panneau_chrono_nb_coup.setVisible(false);
-        panneau_nom_bonus.setVisible(false);
+        panneau_nom_bonus.setVisible(true);
         /*for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
@@ -27,6 +27,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         }*/
         String nomJoueur = nom_joueur.getText();
         Joueur leJoueur = new Joueur(nomJoueur);
+        nb_bonus.setText("0");
+        nb_coups.setText("0");
+        
     }
     
     ActionListener tache_recurrente = new ActionListener() {
@@ -53,7 +56,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        nb_bonus = new javax.swing.JLabel();
         nom_joueur = new javax.swing.JTextField();
         panneau_difficulteEtDemarrer = new javax.swing.JPanel();
         btn_Normal = new javax.swing.JButton();
@@ -66,7 +69,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txt_chrono = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        nb_coups = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,8 +93,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         jLabel10.setText("Nombre de bonus (Difficile) :");
         panneau_nom_bonus.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        jLabel11.setText("jLabel11");
-        panneau_nom_bonus.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        nb_bonus.setText("nb_bonus");
+        panneau_nom_bonus.add(nb_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 60, 20));
 
         nom_joueur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,8 +166,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         txt_chrono.setText("jLabel7");
         panneau_chrono_nb_coup.add(txt_chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 80, 40));
 
-        jLabel8.setText("jLabel8");
-        panneau_chrono_nb_coup.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+        nb_coups.setText("nb_coups");
+        panneau_chrono_nb_coup.add(nb_coups, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
         getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 360, 210));
 
@@ -270,13 +273,13 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private javax.swing.JButton btn_Normal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel nb_bonus;
+    private javax.swing.JLabel nb_coups;
     private javax.swing.JTextField nom_joueur;
     private javax.swing.JPanel panneau_chrono_nb_coup;
     private javax.swing.JPanel panneau_difficulteEtDemarrer;
