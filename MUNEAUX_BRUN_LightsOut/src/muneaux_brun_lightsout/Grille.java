@@ -24,6 +24,7 @@ public class Grille {
         }
     }
     
+
     void changerCase(int uneLigne, int uneColonne) {
         if (CellulesJeu[uneLigne][uneColonne].etatCellule() == true) {
             CellulesJeu[uneLigne][uneColonne].etat = false;
@@ -52,10 +53,26 @@ public class Grille {
                     System.out.print("\u001B[0;47m" + "\u001B[1;34m" + "\u2022" + "\u001B[0m"); 
                 }
                 else {
-                    System.out.print("\u001B[0;47m" + "\u001B[1;30m" + "\u2022" + "\u001B[0m");
+                    System.out.print("\u001B[0;47m" + "\u001B[1;31m" + "\u2022" + "\u001B[0m");
                 }
             }
         }   
+    }
+    
+    void bonusLigne(int uneLigne) {
+        for (int i = 0; i<5; i++) {
+            if (CellulesJeu[uneLigne][i].etatCellule() == true) {
+                CellulesJeu[uneLigne][i].etat = false;
+            }
+        }
+    }
+    
+    void bonusColonne(int uneColonne) {
+        for (int i = 0; i<5; i++) {
+            if (CellulesJeu[i][uneColonne].etatCellule() == true) {
+                CellulesJeu[i][uneColonne].etat = false;
+            }
+        }
     }
     
 }
