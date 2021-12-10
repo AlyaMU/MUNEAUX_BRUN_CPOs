@@ -17,7 +17,7 @@ public class Grille {
     // Méthodes
     
     public Grille() {
-        for(int i = 0; i < 5; i++) { // On initialise une grille de cases vides
+        for(int i = 0; i < 5; i++) { // On initialise une grille de cases vides et éteintes
             for (int j = 0; j < 5; j ++) {
                 CellulesJeu[i][j] = new Cellule();
             }
@@ -31,6 +31,31 @@ public class Grille {
         else {
             CellulesJeu[uneLigne][uneColonne].etat = true;
         }
+    }
+    
+    boolean grilleGagnante() {
+        for(int i = 0; i < 5; i++) { // On vérifie les cases de la grille
+            for (int j = 0; j < 5; j ++) {
+                if (CellulesJeu[i][j].etatCellule() == true) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    void afficherGrilleSurConsole() {
+        for(int i = 4; i >= 0; i--) {
+            System.out.print("\n");
+            for (int j = 0; j < 5; j ++) {
+                if (CellulesJeu[i][j].etatCellule() == true) {
+                    System.out.print("\u001B[0;47m" + "\u001B[1;34m" + "\u2022" + "\u001B[0m"); 
+                }
+                else {
+                    System.out.print("\u001B[0;47m" + "\u001B[1;30m" + "\u2022" + "\u001B[0m");
+                }
+            }
+        }   
     }
     
 }

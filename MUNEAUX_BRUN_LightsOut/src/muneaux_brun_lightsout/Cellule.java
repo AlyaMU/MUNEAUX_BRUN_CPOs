@@ -16,13 +16,17 @@ public class Cellule {
     
     // Méthodes
     
+    public Cellule() {
+        etat = false; // Cellule éteinte
+    }
+    
     boolean etatCellule() {
         if (etat == true) {
-            System.out.println("Cellule allumée");
+            //System.out.println("Cellule allumée");
             return true;
         }
         else {
-            System.out.println("Cellule éteinte");
+            //System.out.println("Cellule éteinte");
             return false;
         }
     }
