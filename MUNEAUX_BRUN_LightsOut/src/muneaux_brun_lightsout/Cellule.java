@@ -13,11 +13,13 @@ public class Cellule {
     // Attributs
     
     boolean etat;
+    boolean bonus;
     
     // Méthodes
     
     public Cellule() {
         etat = false; // Cellule éteinte
+        bonus = false;
     }
     
     boolean etatCellule() {
@@ -27,6 +29,15 @@ public class Cellule {
         }
         else {
             //System.out.println("Cellule éteinte");
+            return false;
+        }
+    }
+    
+    boolean presenceBonus() {
+        if (bonus == true) {
+            return true;
+        }
+        else {
             return false;
         }
     }
