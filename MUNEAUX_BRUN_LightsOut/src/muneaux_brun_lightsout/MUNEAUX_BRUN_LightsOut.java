@@ -18,19 +18,24 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
+        Grille grilleTest = new Grille();
         panneau_chrono_nb_coup.setVisible(false);
         panneau_nom_bonus.setVisible(true);
-        /*for (int i = 5; i >= 0; i--) {
-            for (int j = 0; j < 7; j++) {
-                CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CellulesJeu[i][j]);
+        for (int li = 4; li >= 0; li--) {
+            for (int col = 0; col < 5; col++) {
+                CelluleGraphique cellGraph = new CelluleGraphique(grilleTest.CellulesJeu[li][col]);
+                panneau_grille.add(cellGraph);
             }
-        }*/
+        }
+
         String nomJoueur = nom_joueur.getText();
         Joueur leJoueur = new Joueur(nomJoueur);
         nb_bonus.setText("0");
         nb_coups.setText("0");
         
     }
+    
+    
     
     ActionListener tache_recurrente = new ActionListener() {
         public void actionPerformed(ActionEvent e1) {
@@ -75,7 +80,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
-        panneau_grille.setLayout(new java.awt.GridLayout(1, 0));
+        panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
         getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 590, 570));
 
         panneau_nom_bonus.setBackground(new java.awt.Color(20, 121, 246));
@@ -186,6 +191,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_Demarrer.setEnabled(false);
         panneau_chrono_nb_coup.setVisible(true);
         panneau_nom_bonus.setVisible(true);
+        panneau_grille.repaint();
         nbSecondes = 0;
         txt_chrono.setText(nbSecondes + "");
         monChrono.start();
@@ -247,8 +253,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         
         // Test des fonctionnalités du code
     
-        Grille grilleTest = new Grille();
-        grilleTest.afficherGrilleSurConsole();
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
