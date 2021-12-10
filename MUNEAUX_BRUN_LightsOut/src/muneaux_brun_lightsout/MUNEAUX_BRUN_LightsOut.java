@@ -15,10 +15,10 @@ import javax.swing.Timer;
 public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     
     int nbSecondes = 0;
+    Grille grilleTest = new Grille();
         
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
-        Grille grilleTest = new Grille();
         panneau_chrono_nb_coup.setVisible(false);
         panneau_nom_bonus.setVisible(true);
         for (int li = 4; li >= 0; li--) {
@@ -32,6 +32,11 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         Joueur leJoueur = new Joueur(nomJoueur);
         nb_bonus.setText("0");
         nb_coups.setText("0");
+        // If bouton appuyer = normal...
+              
+        // else if...
+        
+        //else...
         
     }
     
@@ -185,6 +190,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_FeteCouleur.setEnabled(false);
         Consigne_Normal Normal = new Consigne_Normal();
         Normal.setVisible(true);
+        modeNormal();
     }//GEN-LAST:event_btn_NormalActionPerformed
 
     private void btn_DemarrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DemarrerActionPerformed
@@ -257,18 +263,20 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     }
     
     void modeNormal() {
-        Grille grilleJeu = new Grille();
+        //Grille grilleJeu = new Grille();
         int colHasard;
         int ligneHasard;
         int compteurCase = 0;
         while (compteurCase != 5) {
             colHasard = (int)(Math.random()*4); // On définit un nombre au hasard entre 0 et 4
-            ligneHasard = (int)(Math.random()*4); 
-            grilleJeu.changerCase(ligneHasard, colHasard);
-            compteurCase += 1;
-        }
+            ligneHasard = (int)(Math.random()*4);
+            if(grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule()==false){
+                grilleTest.changerCase(ligneHasard, colHasard);
+                compteurCase += 1;
+            }
         System.out.println("La partie peut commmencer");
-        grilleJeu.afficherGrilleSurConsole();
+        grilleTest.afficherGrilleSurConsole();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

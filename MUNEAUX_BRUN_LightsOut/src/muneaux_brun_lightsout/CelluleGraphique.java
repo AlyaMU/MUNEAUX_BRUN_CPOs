@@ -31,8 +31,7 @@ public class CelluleGraphique extends JButton {
         } 
         else{ 
             setIcon(img_allume1);
-        } 
-        
+        }
     }
 }
 
