@@ -34,7 +34,7 @@ public class Consigne_Difficile extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("\t\t\t\tBonjour à toi cher joueur !\n\nVoici les règles du mode de jeu Difficile :\n\nBut du jeu :\n\n            - Vous allez avoir des lumières qui s'allument.\n            - Vous devez éteindre toutes les lumières le plusrapidement possible.\n\nFonctionnement du jeu :\n           \n\t- Lorsque vous appuyez sur un bouton :\n\t               - Il change d'état : de éteind vers allumé  ou d'allumé vers éteind\n\t               - Ses boutons adjacents changent d'état également : celui au dessus, en dessous, à droite et à gauche\n\t\t\t\t                \n[...]");
+        jTextArea1.setText("\t\t\t\tBonjour à toi cher joueur !\n\nVoici les règles du mode de jeu Fête colorée :\n\nBut du jeu :\n\n            - Vous allez avoir des lumières qui s'allument.\n            - Vous devez éteindre toutes les lumières le plusrapidement possible.\n\nFonctionnement du jeu :\n           \n\t- Lorsque vous appuyez sur un bouton :\n\t               - Il change d'état : de éteind vers allumé  ou d'allumé vers éteind\n\t               - Ses boutons adjacents changent d'état également : celui au dessus, en dessous, à droite et à gauche\n\t\t\t\t                \n[...]");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
