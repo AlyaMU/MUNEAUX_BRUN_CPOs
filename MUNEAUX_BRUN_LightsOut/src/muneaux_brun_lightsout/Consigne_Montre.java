@@ -9,12 +9,12 @@ package muneaux_brun_lightsout;
  *
  * @author Mathilde
  */
-public class Consigne_Moyen extends javax.swing.JFrame {
+public class Consigne_Montre extends javax.swing.JFrame {
 
     /**
      * Creates new form Consigne_Moyen
      */
-    public Consigne_Moyen() {
+    public Consigne_Montre() {
         initComponents();
     }
 
@@ -74,20 +74,21 @@ public class Consigne_Moyen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consigne_Moyen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consigne_Montre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consigne_Moyen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consigne_Montre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consigne_Moyen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consigne_Montre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consigne_Moyen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consigne_Montre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Consigne_Moyen().setVisible(true);
+                new Consigne_Montre().setVisible(true);
             }
         });
     }

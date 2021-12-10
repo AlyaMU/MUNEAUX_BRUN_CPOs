@@ -15,9 +15,16 @@ public class Joueur {
     String nom;
     int nbcoups;
     
+    // Constructeur
+    
+    public Joueur(String unNom) {
+        nom = unNom;
+        nbcoups = 0;
+    }
+    
     // Méthodes
     
-    void augmenterCoups() {
+    void augmenterCoups(){
         nbcoups += 1;
     }
 }
