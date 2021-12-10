@@ -16,8 +16,8 @@ public class Accueil_Joueur extends javax.swing.JFrame {
      */
     public Accueil_Joueur() {
         initComponents();
-        String nomJoueur1 = Nom_Joueur.getText();
-        Joueur leJoueur = new Joueur(Nom_Joueur);
+        String nomJoueur = Nom_Joueur.getText();
+        Joueur leJoueur = new Joueur(nomJoueur);
     }
 
     /**
