@@ -80,13 +80,23 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txt_chrono = new javax.swing.JLabel();
         nb_coups = new javax.swing.JLabel();
+        btn_col1 = new javax.swing.JButton();
+        btn_col2 = new javax.swing.JButton();
+        btn_col3 = new javax.swing.JButton();
+        btn_col4 = new javax.swing.JButton();
+        btn_col5 = new javax.swing.JButton();
+        btn_li1 = new javax.swing.JButton();
+        btn_li2 = new javax.swing.JButton();
+        btn_li3 = new javax.swing.JButton();
+        btn_li4 = new javax.swing.JButton();
+        btn_li5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
         panneau_grille.setLayout(new java.awt.GridLayout(5, 5));
-        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 590, 570));
+        getContentPane().add(panneau_grille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 590, 560));
 
         panneau_nom_bonus.setBackground(new java.awt.Color(20, 121, 246));
         panneau_nom_bonus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -113,7 +123,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         });
         panneau_nom_bonus.add(nom_joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 70, -1));
 
-        getContentPane().add(panneau_nom_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 360, 210));
+        getContentPane().add(panneau_nom_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 360, 210));
 
         panneau_difficulteEtDemarrer.setBackground(new java.awt.Color(153, 255, 153));
         panneau_difficulteEtDemarrer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -155,7 +165,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         });
         panneau_difficulteEtDemarrer.add(btn_Montre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 120, -1));
 
-        getContentPane().add(panneau_difficulteEtDemarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 360, 130));
+        getContentPane().add(panneau_difficulteEtDemarrer, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 90, 360, 130));
 
         panneau_chrono_nb_coup.setBackground(new java.awt.Color(221, 56, 31));
         panneau_chrono_nb_coup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -174,12 +184,67 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
 
         txt_chrono.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txt_chrono.setText("jLabel7");
-        panneau_chrono_nb_coup.add(txt_chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 80, 40));
+        panneau_chrono_nb_coup.add(txt_chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 80, 40));
 
         nb_coups.setText("nb_coups");
         panneau_chrono_nb_coup.add(nb_coups, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
-        getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 360, 210));
+        getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 360, 200));
+
+        btn_col1.setText("1");
+        btn_col1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 110, 30));
+
+        btn_col2.setText("2");
+        btn_col2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 110, 30));
+
+        btn_col3.setText("3");
+        btn_col3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 110, 30));
+
+        btn_col4.setText("4");
+        btn_col4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 110, 30));
+
+        btn_col5.setText("5");
+        btn_col5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 110, 30));
+
+        btn_li1.setText("1");
+        getContentPane().add(btn_li1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 40, 100));
+
+        btn_li2.setText("2");
+        getContentPane().add(btn_li2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 40, 100));
+
+        btn_li3.setText("3");
+        getContentPane().add(btn_li3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 40, 100));
+
+        btn_li4.setText("4");
+        getContentPane().add(btn_li4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, 100));
+
+        btn_li5.setText("5");
+        getContentPane().add(btn_li5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 40, 100));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,6 +287,26 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private void nom_joueurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueurActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nom_joueurActionPerformed
+
+    private void btn_col3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col3ActionPerformed
+
+    private void btn_col5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col5ActionPerformed
+
+    private void btn_col4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col4ActionPerformed
+
+    private void btn_col1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col1ActionPerformed
+
+    private void btn_col2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +369,16 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private javax.swing.JButton btn_FeteCouleur;
     private javax.swing.JButton btn_Montre;
     private javax.swing.JButton btn_Normal;
+    private javax.swing.JButton btn_col1;
+    private javax.swing.JButton btn_col2;
+    private javax.swing.JButton btn_col3;
+    private javax.swing.JButton btn_col4;
+    private javax.swing.JButton btn_col5;
+    private javax.swing.JButton btn_li1;
+    private javax.swing.JButton btn_li2;
+    private javax.swing.JButton btn_li3;
+    private javax.swing.JButton btn_li4;
+    private javax.swing.JButton btn_li5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
