@@ -28,9 +28,12 @@ public class CelluleGraphique extends JButton {
         super.paintComponent(G);
         if (celluleAssociee.etatCellule() == false) {
             setIcon(img_eteinte);
-        } 
-        else{ 
+        }
+        else if (celluleAssociee.couleur == "Rouge" || celluleAssociee.couleur==null){ 
             setIcon(img_allume1);
+        }
+        else {
+                setIcon(img_allume2);
         }
     }
 }
