@@ -27,8 +27,25 @@ public class Fenetre_VictoireOuDefaite extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Victoire_texte = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Defaite_texte = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Victoire_texte.setColumns(20);
+        Victoire_texte.setRows(5);
+        jScrollPane1.setViewportView(Victoire_texte);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1050, 640));
+
+        Defaite_texte.setColumns(20);
+        Defaite_texte.setRows(5);
+        jScrollPane2.setViewportView(Defaite_texte);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1050, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -69,5 +86,9 @@ public class Fenetre_VictoireOuDefaite extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Defaite_texte;
+    private javax.swing.JTextArea Victoire_texte;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
