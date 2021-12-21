@@ -39,7 +39,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 int colonne = col;
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        if (mode == 1 || mode == 2) {
+                        if (mode == 1) {
                             grilleTest.changerCase(ligne, colonne);
                             if (ligne != 4) {
                                 grilleTest.changerCase(ligne + 1, colonne);
@@ -54,29 +54,56 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                 grilleTest.changerCase(ligne, colonne - 1);
                             }
                         }
+                        else if (mode == 2) {
+                            grilleTest.changerCase(ligne, colonne);
+                            if (ligne != 4) {
+                                grilleTest.changerCase(ligne + 1, colonne);
+                            }
+                            if (ligne != 0) {
+                                grilleTest.changerCase(ligne - 1, colonne);
+                            }
+                            if (colonne != 4) {
+                                grilleTest.changerCase(ligne, colonne + 1);
+                            }
+                            if (colonne != 0) {
+                                grilleTest.changerCase(ligne, colonne - 1);
+                            }
+                            // Arrêt du jeu
+                            if (nbSecondes == 180) {
+                                for (int i = 0; i < 5; i++) {
+                                    for (int j = 0; j < 5; j++) {
+                                        tabCases[i][j].setEnabled(false);
+                                    }
+                                }
+                                monChrono.stop();
+                                Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
+                                victoireDefaite.setVisible(true);
+                                panneau_grille.repaint();
+                            }
+                        }
                         else {
                             if ("Rouge".equals(cellGraph.celluleAssociee.couleur)) {
                                 grilleTest.changerCase(ligne, colonne);
                                 grilleTest.CellulesJeu[ligne][colonne].couleur = null;
-                                if (ligne != 4) {
+                                if (ligne != 4 && !"Jaune".equals(grilleTest.CellulesJeu[ligne+1][colonne].couleur)) {
                                     grilleTest.changerCase(ligne + 1, colonne);
                                     if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
                                       grilleTest.CellulesJeu[ligne+1][colonne].couleurRouge();  
                                     }
                                 }
-                                if (ligne != 0) {
+                                if (ligne != 0 && !"Jaune".equals(grilleTest.CellulesJeu[ligne-1][colonne].couleur)) {
                                     grilleTest.changerCase(ligne - 1, colonne);
                                     if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
                                        grilleTest.CellulesJeu[ligne-1][colonne].couleurRouge(); 
                                     }
                                 }
-                                if (colonne != 4) {
+                                if (colonne != 4 && !"Jaune".equals(grilleTest.CellulesJeu[ligne][colonne+1].couleur)) {
                                     grilleTest.changerCase(ligne, colonne + 1);
                                     if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
                                         grilleTest.CellulesJeu[ligne][colonne+1].couleurRouge();   
                                     }
                                 }
-                                if (colonne != 0) {
+                                if (colonne != 0 && !"Jaune".equals(grilleTest.CellulesJeu[ligne][colonne-1].couleur)) {
                                     grilleTest.changerCase(ligne, colonne - 1);
                                     if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
                                         grilleTest.CellulesJeu[ligne][colonne-1].couleurRouge();   
@@ -86,25 +113,25 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                             else if ("Jaune".equals(cellGraph.celluleAssociee.couleur)) {
                                 grilleTest.changerCase(ligne, colonne);
                                 grilleTest.CellulesJeu[ligne][colonne].couleur = null;
-                                if (ligne != 4) {
+                                if (ligne != 4 && !"Rouge".equals(grilleTest.CellulesJeu[ligne+1][colonne].couleur)) {
                                     grilleTest.changerCase(ligne + 1, colonne);
                                     if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
                                        grilleTest.CellulesJeu[ligne+1][colonne].couleurJaune(); 
                                     } 
                                 }
-                                if (ligne != 0) {
+                                if (ligne != 0 && !"Rouge".equals(grilleTest.CellulesJeu[ligne-1][colonne].couleur)) {
                                     grilleTest.changerCase(ligne - 1, colonne);
                                     if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
                                         grilleTest.CellulesJeu[ligne-1][colonne].couleurJaune();
                                     }
                                 }
-                                if (colonne != 4) {
+                                if (colonne != 4 && !"Rouge".equals(grilleTest.CellulesJeu[ligne][colonne+1].couleur)) {
                                     grilleTest.changerCase(ligne, colonne + 1);
                                     if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
                                         grilleTest.CellulesJeu[ligne][colonne+1].couleurJaune();   
                                     }
                                 }
-                                if (colonne != 0) {
+                                if (colonne != 0 && !"Rouge".equals(grilleTest.CellulesJeu[ligne][colonne-1].couleur)) {
                                     grilleTest.changerCase(ligne, colonne - 1);
                                     if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
                                         grilleTest.CellulesJeu[ligne][colonne-1].couleurJaune();   
@@ -116,25 +143,25 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                 if (couleurHasard == 0) {
                                     grilleTest.changerCase(ligne, colonne);
                                     grilleTest.CellulesJeu[ligne][colonne].couleur = "Rouge";
-                                    if (ligne != 4) {
+                                    if (ligne != 4 && !"Jaune".equals(grilleTest.CellulesJeu[ligne+1][colonne].couleur)) {
                                         grilleTest.changerCase(ligne + 1, colonne);
                                         if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
                                             grilleTest.CellulesJeu[ligne+1][colonne].couleurRouge();
                                         }
                                     }
-                                    if (ligne != 0) {
+                                    if (ligne != 0 && !"Jaune".equals(grilleTest.CellulesJeu[ligne-1][colonne].couleur)) {
                                         grilleTest.changerCase(ligne - 1, colonne);
                                         if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
                                             grilleTest.CellulesJeu[ligne-1][colonne].couleurRouge();
                                         }
                                     }
-                                    if (colonne != 4) {
+                                    if (colonne != 4 && !"Jaune".equals(grilleTest.CellulesJeu[ligne][colonne+1].couleur)) {
                                         grilleTest.changerCase(ligne, colonne + 1);
                                         if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
                                             grilleTest.CellulesJeu[ligne][colonne+1].couleurRouge();
                                         }
                                     }
-                                    if (colonne != 0) {
+                                    if (colonne != 0 && !"Jaune".equals(grilleTest.CellulesJeu[ligne][colonne-1].couleur)) {
                                         grilleTest.changerCase(ligne, colonne - 1);
                                         if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
                                             grilleTest.CellulesJeu[ligne][colonne-1].couleurRouge();
@@ -144,25 +171,25 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                 else {
                                     grilleTest.changerCase(ligne, colonne);
                                     grilleTest.CellulesJeu[ligne][colonne].couleur = "Jaune";
-                                    if (ligne != 4) {
+                                    if (ligne != 4 && !"Rouge".equals(grilleTest.CellulesJeu[ligne+1][colonne].couleur)) {
                                         grilleTest.changerCase(ligne + 1, colonne);
                                         if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
                                             grilleTest.CellulesJeu[ligne+1][colonne].couleurJaune();
                                         }  
                                     }
-                                    if (ligne != 0) {
+                                    if (ligne != 0 && !"Rouge".equals(grilleTest.CellulesJeu[ligne-1][colonne].couleur)) {
                                         grilleTest.changerCase(ligne - 1, colonne);
                                         if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
                                             grilleTest.CellulesJeu[ligne-1][colonne].couleurJaune();
                                         }
                                     }
-                                    if (colonne != 4) {
+                                    if (colonne != 4 && !"Rouge".equals(grilleTest.CellulesJeu[ligne][colonne+1].couleur)) {
                                         grilleTest.changerCase(ligne, colonne + 1);
                                         if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
                                             grilleTest.CellulesJeu[ligne][colonne+1].couleurJaune();
                                         }
                                     }
-                                    if (colonne != 0) {
+                                    if (colonne != 0 && !"Rouge".equals(grilleTest.CellulesJeu[ligne][colonne-1].couleur)) {
                                         grilleTest.changerCase(ligne, colonne - 1);
                                         if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
                                            grilleTest.CellulesJeu[ligne][colonne-1].couleurJaune(); 
