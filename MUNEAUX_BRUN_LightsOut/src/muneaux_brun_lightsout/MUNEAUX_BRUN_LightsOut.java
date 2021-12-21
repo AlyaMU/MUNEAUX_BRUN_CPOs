@@ -16,22 +16,49 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     
     int nbSecondes = 0;
     Grille grilleTest = new Grille();
+    CelluleGraphique[][] tabCases = new CelluleGraphique[6][7];
         
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
         panneau_chrono_nb_coup.setVisible(false);
         panneau_nom_bonus.setVisible(true);
+        btn_Demarrer.setEnabled(false);
         for (int li = 4; li >= 0; li--) {
             for (int col = 0; col < 5; col++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleTest.CellulesJeu[li][col]);
+                tabCases[li][col] = cellGraph;
                 panneau_grille.add(cellGraph);
-            }
+                int ligne = li;
+                int colonne = col;
+                cellGraph.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        grilleTest.changerCase(ligne,colonne);
+                        if (ligne != 4) {
+                           grilleTest.changerCase(ligne+1,colonne); 
+                        }
+                        if (ligne != 0) {
+                           grilleTest.changerCase(ligne-1,colonne);
+                        }
+                        if (colonne != 4) {
+                           grilleTest.changerCase(ligne,colonne+1); 
+                        }
+                        if (colonne != 0) {
+                           grilleTest.changerCase(ligne,colonne-1);
+                        }
+                        grilleTest.afficherGrilleSurConsole();
+                        panneau_grille.repaint();   
+                    }
+                });
+            }    
         }
+        
 
         String nomJoueur = nom_joueur.getText();
         Joueur leJoueur = new Joueur(nomJoueur);
         nb_bonus.setText("0");
         nb_coups.setText("0");
+        
+        
         // If bouton appuyer = normal...
               
         // else if...
@@ -253,6 +280,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_Normal.setEnabled(false);
         btn_Montre.setEnabled(false);
         btn_FeteCouleur.setEnabled(false);
+        btn_Demarrer.setEnabled(true);
         Consigne_Normal Normal = new Consigne_Normal();
         Normal.setVisible(true);
         modeNormal();
@@ -273,6 +301,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_Normal.setEnabled(false);
         btn_Montre.setEnabled(false);
         btn_FeteCouleur.setEnabled(false);
+        btn_Demarrer.setEnabled(true);
         feteCouleur.setVisible(true);
     }//GEN-LAST:event_btn_FeteCouleurActionPerformed
 
@@ -281,6 +310,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_Normal.setEnabled(false);
         btn_Montre.setEnabled(false);
         btn_FeteCouleur.setEnabled(false);
+        btn_Demarrer.setEnabled(true);
         Montre.setVisible(true);
     }//GEN-LAST:event_btn_MontreActionPerformed
 
