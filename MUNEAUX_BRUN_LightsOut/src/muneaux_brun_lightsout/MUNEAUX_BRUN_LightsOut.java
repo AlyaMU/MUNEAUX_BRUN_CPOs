@@ -187,8 +187,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                     tabCases[i][j].setEnabled(false);
                                 }
                             }
+                            monChrono.stop();
                         }
-                        System.out.println("Victoire !");
                         panneau_grille.repaint();
                     }
                 });
@@ -484,6 +484,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
             grilleTest.bonusColonne(2);
             leJoueur.nbbonus -= 1;
         }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
+        }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
     }//GEN-LAST:event_btn_col3ActionPerformed
@@ -493,6 +496,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         if (leJoueur.nbbonus != 0) {
             grilleTest.bonusColonne(4);
             leJoueur.nbbonus -= 1;
+        }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -504,6 +510,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
             grilleTest.bonusColonne(3);
             leJoueur.nbbonus -= 1;
         }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
+        }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
     }//GEN-LAST:event_btn_col4ActionPerformed
@@ -513,6 +522,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         if (leJoueur.nbbonus != 0) {
             grilleTest.bonusColonne(0);
             leJoueur.nbbonus -= 1;
+        }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -524,6 +536,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
             grilleTest.bonusColonne(1);
             leJoueur.nbbonus -= 1;
         }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
+        }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
     }//GEN-LAST:event_btn_col2ActionPerformed
@@ -533,6 +548,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         if (leJoueur.nbbonus != 0) {
             grilleTest.bonusLigne(0);
             leJoueur.nbbonus -= 1;
+        }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -544,6 +562,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
             grilleTest.bonusLigne(1);
             leJoueur.nbbonus -= 1;
         }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
+        }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
     }//GEN-LAST:event_btn_li2ActionPerformed
@@ -553,6 +574,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         if (leJoueur.nbbonus != 0) {
             grilleTest.bonusLigne(2);
             leJoueur.nbbonus -= 1;
+        }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -564,6 +588,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
             grilleTest.bonusLigne(3);
             leJoueur.nbbonus -= 1;
         }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
+        }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
     }//GEN-LAST:event_btn_li4ActionPerformed
@@ -573,6 +600,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         if (leJoueur.nbbonus != 0) {
             grilleTest.bonusLigne(4);
             leJoueur.nbbonus -= 1;
+        }
+        if (grilleTest.grilleGagnante()==true){
+            monChrono.stop();
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();

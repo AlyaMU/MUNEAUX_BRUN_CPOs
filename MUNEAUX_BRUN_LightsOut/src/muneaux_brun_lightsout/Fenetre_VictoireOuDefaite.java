@@ -9,15 +9,13 @@ package muneaux_brun_lightsout;
  *
  * @author Mathilde
  */
-public class Accueil_Joueur extends javax.swing.JFrame {
+public class Fenetre_VictoireOuDefaite extends javax.swing.JFrame {
 
     /**
-     * Creates new form Accueil_Joueur
+     * Creates new form Fenetre_VictoireOuDefaite
      */
-    public Accueil_Joueur() {
+    public Fenetre_VictoireOuDefaite() {
         initComponents();
-        String nomJoueur = Nom_Joueur.getText();
-        Joueur leJoueur = new Joueur(nomJoueur);
     }
 
     /**
@@ -29,37 +27,11 @@ public class Accueil_Joueur extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        Nom_Joueur = new javax.swing.JTextField();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("Bienvenue Joueur ! Quel est ton nom ?");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 153, 206, 48));
-
-        Nom_Joueur.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Nom_JoueurActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Nom_Joueur, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 200, 90));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void Nom_JoueurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nom_JoueurActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Nom_JoueurActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,26 +50,24 @@ public class Accueil_Joueur extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Accueil_Joueur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Accueil_Joueur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Accueil_Joueur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Accueil_Joueur.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Accueil_Joueur().setVisible(true);
+                new Fenetre_VictoireOuDefaite().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Nom_Joueur;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
