@@ -452,11 +452,11 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
 
     private void btn_FeteCouleurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FeteCouleurActionPerformed
         Consigne_FeteCouleur feteCouleur = new Consigne_FeteCouleur();
+        feteCouleur.setVisible(true);
         btn_Normal.setEnabled(false);
         btn_Montre.setEnabled(false);
         btn_FeteCouleur.setEnabled(false);
         btn_Demarrer.setEnabled(true);
-        feteCouleur.setVisible(true);
         mode = 3;
         modeCouleurs();
         placementBonus();
@@ -661,12 +661,13 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 compteurCase1 += 1;
             }
         }
+        // Problème de boucle infinie pour la "while" en dessous
         while (compteurCase2 != 3) {
             colHasard = (int) (Math.random() * 2); // On définit un nombre au hasard entre 0 et 2
             ligneHasard = (int) (Math.random() * 2);
             if (grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule() == false) {
                 grilleTest.changerCase(ligneHasard, colHasard);
-                grilleTest.CellulesJeu[ligneHasard][colHasard].couleurJaune();
+                grilleTest.CellulesJeu[ligneHasard][colHasard].couleurRouge();
                 compteurCase2 += 1;
             }
         }
