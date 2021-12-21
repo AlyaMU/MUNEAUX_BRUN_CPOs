@@ -18,6 +18,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     Grille grilleTest = new Grille();
     CelluleGraphique[][] tabCases = new CelluleGraphique[6][7];
     int mode = 0;
+    Joueur leJoueur = new Joueur();
 
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
@@ -25,9 +26,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_nom_bonus.setVisible(true);
         btn_Demarrer.setEnabled(false);
         String nomJoueur = nom_joueur.getText();
-        Joueur leJoueur = new Joueur(nomJoueur);
-        nb_bonus.setText("0");
-        nb_coups.setText("0");
+        leJoueur.nom = nomJoueur;
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        nb_coups.setText(leJoueur.nbcoups+"");
         
         for (int li = 4; li >= 0; li--) {
             for (int col = 0; col < 5; col++) {
@@ -170,6 +171,14 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                 }
                             }
                         }
+                        leJoueur.augmenterCoups();
+                        boolean presBonus = grilleTest.CellulesJeu[ligne][colonne].bonus;
+                        if (presBonus == true) {
+                            leJoueur.ajouterBonus();
+                            grilleTest.CellulesJeu[ligne][colonne].bonus = false;
+                        }
+                        nb_bonus.setText(leJoueur.nbbonus+"");
+                        nb_coups.setText(leJoueur.nbcoups+"");
                         grilleTest.afficherGrilleSurConsole();
                         panneau_grille.repaint();
                         if (true == grilleTest.grilleGagnante()) {
@@ -179,6 +188,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                 }
                             }
                         }
+                        System.out.println("Victoire !");
+                        panneau_grille.repaint();
                     }
                 });
             }
@@ -375,18 +386,43 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         getContentPane().add(btn_col5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 110, 30));
 
         btn_li1.setText("1");
+        btn_li1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_li1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_li1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 40, 100));
 
         btn_li2.setText("2");
+        btn_li2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_li2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_li2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 40, 100));
 
         btn_li3.setText("3");
+        btn_li3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_li3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_li3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 40, 100));
 
         btn_li4.setText("4");
+        btn_li4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_li4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_li4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, 100));
 
         btn_li5.setText("5");
+        btn_li5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_li5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_li5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 40, 100));
 
         pack();
@@ -401,6 +437,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         Normal.setVisible(true);
         mode = 1;
         modeNormal();
+        placementBonus();
     }//GEN-LAST:event_btn_NormalActionPerformed
 
     private void btn_DemarrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DemarrerActionPerformed
@@ -422,6 +459,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         feteCouleur.setVisible(true);
         mode = 3;
         modeCouleurs();
+        placementBonus();
     }//GEN-LAST:event_btn_FeteCouleurActionPerformed
 
     private void btn_MontreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MontreActionPerformed
@@ -433,6 +471,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         Montre.setVisible(true);
         mode = 2;
         modeMontre();
+        placementBonus();
     }//GEN-LAST:event_btn_MontreActionPerformed
 
     private void nom_joueurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueurActionPerformed
@@ -441,23 +480,103 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
 
     private void btn_col3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col3ActionPerformed
         // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusColonne(2);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
     }//GEN-LAST:event_btn_col3ActionPerformed
 
     private void btn_col5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col5ActionPerformed
         // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusColonne(4);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
     }//GEN-LAST:event_btn_col5ActionPerformed
 
     private void btn_col4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col4ActionPerformed
         // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusColonne(3);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
     }//GEN-LAST:event_btn_col4ActionPerformed
 
     private void btn_col1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col1ActionPerformed
         // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusColonne(0);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
     }//GEN-LAST:event_btn_col1ActionPerformed
 
     private void btn_col2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col2ActionPerformed
         // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusColonne(1);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
     }//GEN-LAST:event_btn_col2ActionPerformed
+
+    private void btn_li1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li1ActionPerformed
+        // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusLigne(0);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
+    }//GEN-LAST:event_btn_li1ActionPerformed
+
+    private void btn_li2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li2ActionPerformed
+        // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusLigne(1);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
+    }//GEN-LAST:event_btn_li2ActionPerformed
+
+    private void btn_li3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li3ActionPerformed
+        // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusLigne(2);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
+    }//GEN-LAST:event_btn_li3ActionPerformed
+
+    private void btn_li4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li4ActionPerformed
+        // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusLigne(3);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
+    }//GEN-LAST:event_btn_li4ActionPerformed
+
+    private void btn_li5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li5ActionPerformed
+        // TODO add your handling code here:
+        if (leJoueur.nbbonus != 0) {
+            grilleTest.bonusLigne(4);
+            leJoueur.nbbonus -= 1;
+        }
+        nb_bonus.setText(leJoueur.nbbonus+"");
+        panneau_grille.repaint();
+    }//GEN-LAST:event_btn_li5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -553,6 +672,20 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         }
         System.out.println("La partie peut commmencer");
         grilleTest.afficherGrilleSurConsole();
+    }
+    
+    void placementBonus() {
+        int colHasard;
+        int ligneHasard;
+        int compteurCase = 0;
+        while (compteurCase != 5) {
+            colHasard = (int) (Math.random() * 4); // On définit un nombre au hasard entre 0 et 4
+            ligneHasard = (int) (Math.random() * 4);
+            if (grilleTest.CellulesJeu[ligneHasard][colHasard].bonus == false) {
+                grilleTest.CellulesJeu[ligneHasard][colHasard].bonus = true;
+                compteurCase += 1;
+            }
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
