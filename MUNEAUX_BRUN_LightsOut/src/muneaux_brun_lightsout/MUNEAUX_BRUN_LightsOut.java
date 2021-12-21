@@ -13,16 +13,22 @@ import javax.swing.Timer;
  * @author Alya
  */
 public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
-    
+
     int nbSecondes = 0;
     Grille grilleTest = new Grille();
     CelluleGraphique[][] tabCases = new CelluleGraphique[6][7];
-        
+    int mode = 0;
+
     public MUNEAUX_BRUN_LightsOut() {
         initComponents();
         panneau_chrono_nb_coup.setVisible(false);
         panneau_nom_bonus.setVisible(true);
         btn_Demarrer.setEnabled(false);
+        String nomJoueur = nom_joueur.getText();
+        Joueur leJoueur = new Joueur(nomJoueur);
+        nb_bonus.setText("0");
+        nb_coups.setText("0");
+        
         for (int li = 4; li >= 0; li--) {
             for (int col = 0; col < 5; col++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleTest.CellulesJeu[li][col]);
@@ -32,50 +38,160 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 int colonne = col;
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        grilleTest.changerCase(ligne,colonne);
-                        if (ligne != 4) {
-                           grilleTest.changerCase(ligne+1,colonne); 
+                        if (mode == 1 || mode == 2) {
+                            grilleTest.changerCase(ligne, colonne);
+                            if (ligne != 4) {
+                                grilleTest.changerCase(ligne + 1, colonne);
+                            }
+                            if (ligne != 0) {
+                                grilleTest.changerCase(ligne - 1, colonne);
+                            }
+                            if (colonne != 4) {
+                                grilleTest.changerCase(ligne, colonne + 1);
+                            }
+                            if (colonne != 0) {
+                                grilleTest.changerCase(ligne, colonne - 1);
+                            }
                         }
-                        if (ligne != 0) {
-                           grilleTest.changerCase(ligne-1,colonne);
-                        }
-                        if (colonne != 4) {
-                           grilleTest.changerCase(ligne,colonne+1); 
-                        }
-                        if (colonne != 0) {
-                           grilleTest.changerCase(ligne,colonne-1);
+                        else {
+                            if ("Rouge".equals(cellGraph.celluleAssociee.couleur)) {
+                                grilleTest.changerCase(ligne, colonne);
+                                grilleTest.CellulesJeu[ligne][colonne].couleur = null;
+                                if (ligne != 4) {
+                                    grilleTest.changerCase(ligne + 1, colonne);
+                                    if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
+                                      grilleTest.CellulesJeu[ligne+1][colonne].couleurRouge();  
+                                    }
+                                }
+                                if (ligne != 0) {
+                                    grilleTest.changerCase(ligne - 1, colonne);
+                                    if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
+                                       grilleTest.CellulesJeu[ligne-1][colonne].couleurRouge(); 
+                                    }
+                                }
+                                if (colonne != 4) {
+                                    grilleTest.changerCase(ligne, colonne + 1);
+                                    if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
+                                        grilleTest.CellulesJeu[ligne][colonne+1].couleurRouge();   
+                                    }
+                                }
+                                if (colonne != 0) {
+                                    grilleTest.changerCase(ligne, colonne - 1);
+                                    if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
+                                        grilleTest.CellulesJeu[ligne][colonne-1].couleurRouge();   
+                                    }
+                                }
+                            }
+                            else if ("Jaune".equals(cellGraph.celluleAssociee.couleur)) {
+                                grilleTest.changerCase(ligne, colonne);
+                                grilleTest.CellulesJeu[ligne][colonne].couleur = null;
+                                if (ligne != 4) {
+                                    grilleTest.changerCase(ligne + 1, colonne);
+                                    if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
+                                       grilleTest.CellulesJeu[ligne+1][colonne].couleurJaune(); 
+                                    } 
+                                }
+                                if (ligne != 0) {
+                                    grilleTest.changerCase(ligne - 1, colonne);
+                                    if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
+                                        grilleTest.CellulesJeu[ligne-1][colonne].couleurJaune();
+                                    }
+                                }
+                                if (colonne != 4) {
+                                    grilleTest.changerCase(ligne, colonne + 1);
+                                    if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
+                                        grilleTest.CellulesJeu[ligne][colonne+1].couleurJaune();   
+                                    }
+                                }
+                                if (colonne != 0) {
+                                    grilleTest.changerCase(ligne, colonne - 1);
+                                    if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
+                                        grilleTest.CellulesJeu[ligne][colonne-1].couleurJaune();   
+                                    }
+                                }
+                            }
+                            else {
+                                int couleurHasard = (int) (Math.random() * 1);
+                                if (couleurHasard == 0) {
+                                    grilleTest.changerCase(ligne, colonne);
+                                    grilleTest.CellulesJeu[ligne][colonne].couleur = "Rouge";
+                                    if (ligne != 4) {
+                                        grilleTest.changerCase(ligne + 1, colonne);
+                                        if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
+                                            grilleTest.CellulesJeu[ligne+1][colonne].couleurRouge();
+                                        }
+                                    }
+                                    if (ligne != 0) {
+                                        grilleTest.changerCase(ligne - 1, colonne);
+                                        if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
+                                            grilleTest.CellulesJeu[ligne-1][colonne].couleurRouge();
+                                        }
+                                    }
+                                    if (colonne != 4) {
+                                        grilleTest.changerCase(ligne, colonne + 1);
+                                        if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
+                                            grilleTest.CellulesJeu[ligne][colonne+1].couleurRouge();
+                                        }
+                                    }
+                                    if (colonne != 0) {
+                                        grilleTest.changerCase(ligne, colonne - 1);
+                                        if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
+                                            grilleTest.CellulesJeu[ligne][colonne-1].couleurRouge();
+                                        }
+                                    }
+                                }
+                                else {
+                                    grilleTest.changerCase(ligne, colonne);
+                                    grilleTest.CellulesJeu[ligne][colonne].couleur = "Jaune";
+                                    if (ligne != 4) {
+                                        grilleTest.changerCase(ligne + 1, colonne);
+                                        if(grilleTest.CellulesJeu[ligne+1][colonne].etatCellule() == true) {
+                                            grilleTest.CellulesJeu[ligne+1][colonne].couleurJaune();
+                                        }  
+                                    }
+                                    if (ligne != 0) {
+                                        grilleTest.changerCase(ligne - 1, colonne);
+                                        if(grilleTest.CellulesJeu[ligne-1][colonne].etatCellule() == true) {
+                                            grilleTest.CellulesJeu[ligne-1][colonne].couleurJaune();
+                                        }
+                                    }
+                                    if (colonne != 4) {
+                                        grilleTest.changerCase(ligne, colonne + 1);
+                                        if (grilleTest.CellulesJeu[ligne][colonne+1].etatCellule() == true) {
+                                            grilleTest.CellulesJeu[ligne][colonne+1].couleurJaune();
+                                        }
+                                    }
+                                    if (colonne != 0) {
+                                        grilleTest.changerCase(ligne, colonne - 1);
+                                        if (grilleTest.CellulesJeu[ligne][colonne-1].etatCellule() == true) {
+                                           grilleTest.CellulesJeu[ligne][colonne-1].couleurJaune(); 
+                                        }
+                                    }
+                                }
+                            }
                         }
                         grilleTest.afficherGrilleSurConsole();
-                        panneau_grille.repaint();   
+                        panneau_grille.repaint();
+                        if (true == grilleTest.grilleGagnante()) {
+                            for (int i = 0; i < 5; i++) {
+                                for (int j = 0; j < 5; j++) {
+                                    tabCases[i][j].setEnabled(false);
+                                }
+                            }
+                        }
                     }
                 });
-            }    
+            }
         }
-        
-
-        String nomJoueur = nom_joueur.getText();
-        Joueur leJoueur = new Joueur(nomJoueur);
-        nb_bonus.setText("0");
-        nb_coups.setText("0");
-        
-        
-        // If bouton appuyer = normal...
-              
-        // else if...
-        
-        //else...
-        
     }
-    
-    
-    
+
     ActionListener tache_recurrente = new ActionListener() {
         public void actionPerformed(ActionEvent e1) {
             nbSecondes++;
             txt_chrono.setText(nbSecondes + "");
         }
-        ;
-        };
+    ;
+    };
 		/* instanciation du timer */
 	Timer monChrono = new Timer(1000, tache_recurrente);
 
@@ -283,6 +399,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_Demarrer.setEnabled(true);
         Consigne_Normal Normal = new Consigne_Normal();
         Normal.setVisible(true);
+        mode = 1;
         modeNormal();
     }//GEN-LAST:event_btn_NormalActionPerformed
 
@@ -303,6 +420,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_FeteCouleur.setEnabled(false);
         btn_Demarrer.setEnabled(true);
         feteCouleur.setVisible(true);
+        mode = 3;
+        modeCouleurs();
     }//GEN-LAST:event_btn_FeteCouleurActionPerformed
 
     private void btn_MontreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MontreActionPerformed
@@ -312,6 +431,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         btn_FeteCouleur.setEnabled(false);
         btn_Demarrer.setEnabled(true);
         Montre.setVisible(true);
+        mode = 2;
+        modeMontre();
     }//GEN-LAST:event_btn_MontreActionPerformed
 
     private void nom_joueurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueurActionPerformed
@@ -371,27 +492,67 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 new MUNEAUX_BRUN_LightsOut().setVisible(true);
             }
         });
-        
+
         // Test des fonctionnalités du code
-    
-        
     }
-    
+
     void modeNormal() {
-        //Grille grilleJeu = new Grille();
         int colHasard;
         int ligneHasard;
         int compteurCase = 0;
         while (compteurCase != 5) {
-            colHasard = (int)(Math.random()*4); // On définit un nombre au hasard entre 0 et 4
-            ligneHasard = (int)(Math.random()*4);
-            if(grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule()==false){
+            colHasard = (int) (Math.random() * 4); // On définit un nombre au hasard entre 0 et 4
+            ligneHasard = (int) (Math.random() * 4);
+            if (grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule() == false) {
                 grilleTest.changerCase(ligneHasard, colHasard);
                 compteurCase += 1;
             }
+        }
         System.out.println("La partie peut commmencer");
         grilleTest.afficherGrilleSurConsole();
+    }
+
+    void modeMontre() {
+        int colHasard;
+        int ligneHasard;
+        int compteurCase = 0;
+        while (compteurCase != 5) {
+            colHasard = (int) (Math.random() * 4); // On définit un nombre au hasard entre 0 et 4
+            ligneHasard = (int) (Math.random() * 4);
+            if (grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule() == false) {
+                grilleTest.changerCase(ligneHasard, colHasard);
+                compteurCase += 1;
+            }
         }
+        System.out.println("La partie peut commmencer");
+        grilleTest.afficherGrilleSurConsole();
+    }
+
+    void modeCouleurs() {
+        int colHasard;
+        int ligneHasard;
+        int compteurCase1 = 0;
+        int compteurCase2 = 0;
+        while (compteurCase1 != 3) {
+            colHasard = (int) (Math.random() * 2); // On définit un nombre au hasard entre 0 et 2
+            ligneHasard = (int) (Math.random() * 2);
+            if (grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule() == false) {
+                grilleTest.changerCase(ligneHasard, colHasard);
+                grilleTest.CellulesJeu[ligneHasard][colHasard].couleurRouge();
+                compteurCase1 += 1;
+            }
+        }
+        while (compteurCase2 != 3) {
+            colHasard = (int) (Math.random() * 2); // On définit un nombre au hasard entre 0 et 2
+            ligneHasard = (int) (Math.random() * 2);
+            if (grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule() == false) {
+                grilleTest.changerCase(ligneHasard, colHasard);
+                grilleTest.CellulesJeu[ligneHasard][colHasard].couleurJaune();
+                compteurCase2 += 1;
+            }
+        }
+        System.out.println("La partie peut commmencer");
+        grilleTest.afficherGrilleSurConsole();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
