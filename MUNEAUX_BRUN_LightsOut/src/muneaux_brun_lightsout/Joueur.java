@@ -18,6 +18,10 @@ public class Joueur {
     
     // Constructeur
     
+    public Joueur(){
+        
+    }
+    
     public Joueur(String unNom) {
         nom = unNom;
         nbcoups = 0;
