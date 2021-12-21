@@ -583,7 +583,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private void btn_li1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li1ActionPerformed
         // TODO add your handling code here:
         if (leJoueur.nbbonus != 0) {
-            grilleTest.bonusLigne(0);
+            grilleTest.bonusLigne(4);
             leJoueur.nbbonus -= 1;
         }
         if (true == grilleTest.grilleGagnante()) {
@@ -603,7 +603,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private void btn_li2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li2ActionPerformed
         // TODO add your handling code here:
         if (leJoueur.nbbonus != 0) {
-            grilleTest.bonusLigne(1);
+            grilleTest.bonusLigne(3);
             leJoueur.nbbonus -= 1;
         }
         if (true == grilleTest.grilleGagnante()) {
@@ -643,7 +643,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private void btn_li4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li4ActionPerformed
         // TODO add your handling code here:
         if (leJoueur.nbbonus != 0) {
-            grilleTest.bonusLigne(3);
+            grilleTest.bonusLigne(1);
             leJoueur.nbbonus -= 1;
         }
         if (true == grilleTest.grilleGagnante()) {
@@ -663,7 +663,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private void btn_li5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_li5ActionPerformed
         // TODO add your handling code here:
         if (leJoueur.nbbonus != 0) {
-            grilleTest.bonusLigne(4);
+            grilleTest.bonusLigne(0);
             leJoueur.nbbonus -= 1;
         }
         if (true == grilleTest.grilleGagnante()) {
@@ -755,8 +755,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         int compteurCase1 = 0;
         int compteurCase2 = 0;
         while (compteurCase1 != 3) {
-            colHasard = (int) (Math.random() * 2); // On définit un nombre au hasard entre 0 et 2
-            ligneHasard = (int) (Math.random() * 2);
+            colHasard = (int) (Math.random() * 4); // On définit un nombre au hasard entre 0 et 2
+            ligneHasard = (int) (Math.random() * 4);
             if (grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule() == false) {
                 grilleTest.changerCase(ligneHasard, colHasard);
                 grilleTest.CellulesJeu[ligneHasard][colHasard].couleurRouge();
@@ -765,11 +765,11 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         }
         // Problème de boucle infinie pour la "while" en dessous
         while (compteurCase2 != 3) {
-            colHasard = (int) (Math.random() * 2); // On définit un nombre au hasard entre 0 et 2
-            ligneHasard = (int) (Math.random() * 2);
+            colHasard = (int) (Math.random() * 4); // On définit un nombre au hasard entre 0 et 2
+            ligneHasard = (int) (Math.random() * 4);
             if (grilleTest.CellulesJeu[ligneHasard][colHasard].etatCellule() == false) {
                 grilleTest.changerCase(ligneHasard, colHasard);
-                grilleTest.CellulesJeu[ligneHasard][colHasard].couleurRouge();
+                grilleTest.CellulesJeu[ligneHasard][colHasard].couleurJaune();
                 compteurCase2 += 1;
             }
         }
