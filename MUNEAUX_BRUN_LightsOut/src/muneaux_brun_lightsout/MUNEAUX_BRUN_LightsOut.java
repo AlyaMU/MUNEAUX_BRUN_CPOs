@@ -204,6 +204,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                         if (presBonus == true) {
                             leJoueur.ajouterBonus();
                             grilleTest.CellulesJeu[ligne][colonne].bonus = false;
+                            Obtention_bonus bonus = new Obtention_bonus();
+                            bonus.setVisible(true);
                         }
                         nb_bonus.setText(leJoueur.nbbonus+"");
                         nb_coups.setText(leJoueur.nbcoups+"");
