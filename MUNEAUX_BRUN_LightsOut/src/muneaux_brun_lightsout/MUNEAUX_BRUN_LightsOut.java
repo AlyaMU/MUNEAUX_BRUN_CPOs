@@ -37,6 +37,19 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 panneau_grille.add(cellGraph);
                 int ligne = li;
                 int colonne = col;
+                // Arrêt du jeu
+                System.out.println(nbSecondes);
+                if (nbSecondes == 120 && mode == 2) {
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            tabCases[i][j].setEnabled(false);
+                        }
+                    }
+                    monChrono.stop();
+                    Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
+                    victoireDefaite.setVisible(true);
+                    panneau_grille.repaint();
+                }
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         if (mode == 1) {
@@ -67,18 +80,6 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                             }
                             if (colonne != 0) {
                                 grilleTest.changerCase(ligne, colonne - 1);
-                            }
-                            // Arrêt du jeu
-                            if (nbSecondes == 180) {
-                                for (int i = 0; i < 5; i++) {
-                                    for (int j = 0; j < 5; j++) {
-                                        tabCases[i][j].setEnabled(false);
-                                    }
-                                }
-                                monChrono.stop();
-                                Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-                                victoireDefaite.setVisible(true);
-                                panneau_grille.repaint();
                             }
                         }
                         else {
@@ -229,11 +230,24 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent e1) {
             nbSecondes++;
             txt_chrono.setText(nbSecondes + "");
+            if (nbSecondes == 120 && mode == 2) {
+                for (int i = 0; i < 5; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        tabCases[i][j].setEnabled(false);
+                    }
+                }
+                monChrono.stop();
+                Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
+                victoireDefaite.setVisible(true);
+                panneau_grille.repaint();
+            }
         }
     ;
+        
     };
 		/* instanciation du timer */
 	Timer monChrono = new Timer(1000, tache_recurrente);
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
