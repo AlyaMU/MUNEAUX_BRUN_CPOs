@@ -9,12 +9,12 @@ package muneaux_brun_lightsout;
  *
  * @author Mathilde
  */
-public class Fenetre_VictoireOuDefaite extends javax.swing.JFrame {
+public class Fenetre_Victoire extends javax.swing.JFrame {
 
     /**
      * Creates new form Fenetre_VictoireOuDefaite
      */
-    public Fenetre_VictoireOuDefaite() {
+    public Fenetre_Victoire() {
         initComponents();
     }
 
@@ -67,20 +67,21 @@ public class Fenetre_VictoireOuDefaite extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Fenetre_VictoireOuDefaite.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Fenetre_Victoire.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Fenetre_VictoireOuDefaite().setVisible(true);
+                new Fenetre_Victoire().setVisible(true);
             }
         });
     }

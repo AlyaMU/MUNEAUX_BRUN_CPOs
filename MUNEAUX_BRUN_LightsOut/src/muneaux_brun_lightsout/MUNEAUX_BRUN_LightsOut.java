@@ -46,8 +46,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                         }
                     }
                     monChrono.stop();
-                    Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-                    victoireDefaite.setVisible(true);
+                    Fenetre_Victoire victoire = new Fenetre_Victoire();
+                    victoire.setVisible(true);
                     panneau_grille.repaint();
                 }
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
@@ -216,8 +216,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                 }
                             }
                             monChrono.stop();
-                            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-                            victoireDefaite.setVisible(true);
+                            Fenetre_Victoire victoire = new Fenetre_Victoire();
+                            victoire.setVisible(true);
                         }
                         panneau_grille.repaint();
                     }
@@ -237,8 +237,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                     }
                 }
                 monChrono.stop();
-                Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-                victoireDefaite.setVisible(true);
+                Fenetre_Defaite defaite = new Fenetre_Defaite();
+                defaite.setVisible(true);
                 panneau_grille.repaint();
             }
         }
@@ -307,11 +307,11 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_nom_bonus.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel10.setText("Nombre de bonus (Difficile) :");
+        jLabel10.setText("Nombre de bonus :");
         panneau_nom_bonus.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         nb_bonus.setText("nb_bonus");
-        panneau_nom_bonus.add(nb_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 60, 20));
+        panneau_nom_bonus.add(nb_bonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 60, 20));
 
         nom_joueur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -534,8 +534,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -554,8 +554,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -574,8 +574,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -594,8 +594,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -614,8 +614,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -634,8 +634,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -654,8 +654,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -674,8 +674,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -694,8 +694,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
@@ -714,8 +714,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 }
             }
             monChrono.stop();
-            Fenetre_VictoireOuDefaite victoireDefaite = new Fenetre_VictoireOuDefaite();
-            victoireDefaite.setVisible(true);
+            Fenetre_Victoire victoire = new Fenetre_Victoire();
+            victoire.setVisible(true);
         }
         nb_bonus.setText(leJoueur.nbbonus+"");
         panneau_grille.repaint();
