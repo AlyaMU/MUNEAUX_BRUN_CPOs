@@ -29,9 +29,10 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         leJoueur.nom = nomJoueur;
         nb_bonus.setText(leJoueur.nbbonus+"");
         nb_coups.setText(leJoueur.nbcoups+"");
-        
         FichierLu monFichier = new FichierLu();
         monFichier.creerFichier();
+        monFichier.ecrireFichier(leJoueur.nbcoups+"",nbSecondes+"");
+        monFichier.lireFichier();
         
         for (int li = 4; li >= 0; li--) {
             for (int col = 0; col < 5; col++) {
@@ -202,18 +203,15 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                         grilleTest.afficherGrilleSurConsole();
                         panneau_grille.repaint();
                         if (true == grilleTest.grilleGagnante()) {
+                            monChrono.stop();
+                            System.out.println("Checkpoint");
                             for (int i = 0; i < 5; i++) {
                                 for (int j = 0; j < 5; j++) {
                                     tabCases[i][j].setEnabled(false);
                                 }
                             }
-                            monChrono.stop();
-                            monFichier.ecrireFichier(leJoueur.nbcoups+"",nbSecondes+"");
                             Fenetre_Victoire victoire = new Fenetre_Victoire();
                             victoire.setVisible(true);
-                            System.out.println("Checkpoint");
-                            monFichier.ecrireFichier(leJoueur.nbcoups+"",nbSecondes+"");
-                            monFichier.lireFichier();
                         }
                         System.out.println("Checkpoint");
                         panneau_grille.repaint();
