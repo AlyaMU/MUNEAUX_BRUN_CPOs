@@ -16,20 +16,24 @@ import java.util.Collections;
 
 public class FichierLu extends FichierEcrit {
 
+    String nomsJoueurs = "";
     ArrayList<String> coupsParties = new ArrayList<String>();
     ArrayList<String> chronoParties = new ArrayList<String>();
 
     void lireFichier() {
-        int compteur = 0;
+        int compteur = 1;
         try {
             File myObj = new File("FichierLightsOut.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                if (compteur % 2 == 0) { // Le chiffre lu correspond a un nombre de coups
-                    coupsParties.add(data);
+                if (compteur%2 != 0) {
+                    nomsJoueurs = data;
+                }
+                else if (compteur % 4 == 0) { // Le chiffre lu correspond a un nombre de secondes
+                    chronoParties.add(nomsJoueurs + " " + data);
                 } else {
-                    chronoParties.add(data);
+                    coupsParties.add(nomsJoueurs + " " + data);
                 }
                 compteur += 1;
             }
