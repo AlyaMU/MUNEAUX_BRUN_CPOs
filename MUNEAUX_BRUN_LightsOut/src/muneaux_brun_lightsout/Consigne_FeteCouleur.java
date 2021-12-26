@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * MUNEAUX BRUN Lights Out
+ * Projet fin de Semestre 3 2ème année EPF
  */
 package muneaux_brun_lightsout;
 
