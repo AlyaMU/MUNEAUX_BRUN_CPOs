@@ -30,7 +30,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         nb_bonus.setText(leJoueur.nbbonus+"");
         nb_coups.setText(leJoueur.nbcoups+"");
         
-        FichierEcrit monFichier = new FichierEcrit();
+        FichierLu monFichier = new FichierLu();
         monFichier.creerFichier();
         
         for (int li = 4; li >= 0; li--) {
@@ -211,7 +211,11 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                             monFichier.ecrireFichier(leJoueur.nbcoups+"",nbSecondes+"");
                             Fenetre_Victoire victoire = new Fenetre_Victoire();
                             victoire.setVisible(true);
+                            System.out.println("Checkpoint");
+                            monFichier.ecrireFichier(leJoueur.nbcoups+"",nbSecondes+"");
+                            monFichier.lireFichier();
                         }
+                        System.out.println("Checkpoint");
                         panneau_grille.repaint();
                     }
                 });

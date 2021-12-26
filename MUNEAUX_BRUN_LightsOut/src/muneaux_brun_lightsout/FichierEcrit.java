@@ -14,7 +14,7 @@ import java.io.IOException;  // Import the IOException class to handle errors
 public class FichierEcrit extends Fichier {
     void ecrireFichier(String nbCoups, String nbSecondes) {
     try {
-      FileWriter myWriter = new FileWriter("FichierLightsOut.txt");
+      FileWriter myWriter = new FileWriter("FichierLightsOut.txt",true);
       myWriter.write(nbCoups + "\n");
       myWriter.write(nbSecondes + "\n");
       myWriter.close();
