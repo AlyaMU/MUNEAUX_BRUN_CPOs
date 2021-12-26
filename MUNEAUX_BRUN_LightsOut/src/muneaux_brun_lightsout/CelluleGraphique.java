@@ -16,7 +16,7 @@ public class CelluleGraphique extends JButton {
 
     Cellule celluleAssociee;
     ImageIcon img_eteinte = new javax.swing.ImageIcon(getClass().getResource("/images/Case_eteinte.jpg"));
-    ImageIcon img_allume1 = new javax.swing.ImageIcon(getClass().getResource("/images/Case_allume1.jpg"));
+    ImageIcon img_allume1 = new javax.swing.ImageIcon(getClass().getResource("/images/Case_allume1.png"));
     ImageIcon img_allume2 = new javax.swing.ImageIcon(getClass().getResource("/images/Case_allume2.jpg"));
     
     public CelluleGraphique(Cellule uneCellule) {
@@ -32,7 +32,7 @@ public class CelluleGraphique extends JButton {
         else if (celluleAssociee.couleur == "Rouge" || celluleAssociee.couleur==null){ 
             setIcon(img_allume1);
         }
-        else {
+        else if (celluleAssociee.couleur == "Jaune") {
                 setIcon(img_allume2);
         }
     }

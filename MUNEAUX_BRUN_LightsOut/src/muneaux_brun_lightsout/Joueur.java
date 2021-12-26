@@ -19,13 +19,8 @@ public class Joueur {
     // Constructeur
     
     public Joueur(){
-        
-    }
-    
-    public Joueur(String unNom) {
-        nom = unNom;
-        nbcoups = 0;
-        nbbonus = 0;
+       nbcoups = 0;
+        nbbonus = 0; 
     }
     
     // Méthodes

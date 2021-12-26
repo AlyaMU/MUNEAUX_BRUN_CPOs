@@ -30,6 +30,9 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         nb_bonus.setText(leJoueur.nbbonus+"");
         nb_coups.setText(leJoueur.nbcoups+"");
         
+        FichierEcrit monFichier = new FichierEcrit();
+        monFichier.creerFichier();
+        
         for (int li = 4; li >= 0; li--) {
             for (int col = 0; col < 5; col++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleTest.CellulesJeu[li][col]);
@@ -37,19 +40,6 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 panneau_grille.add(cellGraph);
                 int ligne = li;
                 int colonne = col;
-                // Arrêt du jeu
-                System.out.println(nbSecondes);
-                if (nbSecondes == 120 && mode == 2) {
-                    for (int i = 0; i < 5; i++) {
-                        for (int j = 0; j < 5; j++) {
-                            tabCases[i][j].setEnabled(false);
-                        }
-                    }
-                    monChrono.stop();
-                    Fenetre_Victoire victoire = new Fenetre_Victoire();
-                    victoire.setVisible(true);
-                    panneau_grille.repaint();
-                }
                 cellGraph.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         if (mode == 1) {
@@ -218,6 +208,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                 }
                             }
                             monChrono.stop();
+                            monFichier.ecrireFichier(leJoueur.nbcoups+"",nbSecondes+"");
                             Fenetre_Victoire victoire = new Fenetre_Victoire();
                             victoire.setVisible(true);
                         }
