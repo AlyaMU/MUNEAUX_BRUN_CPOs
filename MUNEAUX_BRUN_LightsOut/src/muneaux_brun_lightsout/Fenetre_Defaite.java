@@ -30,7 +30,7 @@ public class Fenetre_Defaite extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         defaite_texte = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         defaite_texte.setColumns(20);
         defaite_texte.setRows(5);

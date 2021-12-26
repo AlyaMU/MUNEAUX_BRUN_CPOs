@@ -25,6 +25,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_chrono_nb_coup.setVisible(false);
         panneau_nom_bonus.setVisible(true);
         btn_Demarrer.setEnabled(false);
+        btn_finDePartie.setEnabled(false);
         String nomJoueur = nom_joueur.getText();
         leJoueur.nom = nomJoueur;
         nb_bonus.setText(leJoueur.nbbonus+"");
@@ -212,6 +213,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                             }
                             Fenetre_Victoire victoire = new Fenetre_Victoire();
                             victoire.setVisible(true);
+                            btn_finDePartie.setEnabled(true);
                         }
                         System.out.println("Checkpoint");
                         panneau_grille.repaint();
@@ -235,6 +237,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                 Fenetre_Defaite defaite = new Fenetre_Defaite();
                 defaite.setVisible(true);
                 panneau_grille.repaint();
+                btn_finDePartie.setEnabled(true);
             }
         }
     ;
@@ -272,6 +275,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txt_chrono = new javax.swing.JLabel();
         nb_coups = new javax.swing.JLabel();
+        btn_finDePartie = new javax.swing.JButton();
         btn_col1 = new javax.swing.JButton();
         btn_col2 = new javax.swing.JButton();
         btn_col3 = new javax.swing.JButton();
@@ -389,16 +393,24 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Chronomètre :");
-        panneau_chrono_nb_coup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        panneau_chrono_nb_coup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         txt_chrono.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txt_chrono.setForeground(new java.awt.Color(255, 255, 255));
         txt_chrono.setText("jLabel7");
-        panneau_chrono_nb_coup.add(txt_chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 80, 40));
+        panneau_chrono_nb_coup.add(txt_chrono, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 80, 40));
 
         nb_coups.setForeground(new java.awt.Color(255, 255, 255));
         nb_coups.setText("nb_coups");
         panneau_chrono_nb_coup.add(nb_coups, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+
+        btn_finDePartie.setText("Fin de partie");
+        btn_finDePartie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_finDePartieActionPerformed(evt);
+            }
+        });
+        panneau_chrono_nb_coup.add(btn_finDePartie, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 110, -1));
 
         getContentPane().add(panneau_chrono_nb_coup, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 360, 200));
 
@@ -758,6 +770,10 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_grille.repaint();
     }//GEN-LAST:event_btn_li5ActionPerformed
 
+    private void btn_finDePartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finDePartieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_finDePartieActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -879,6 +895,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private javax.swing.JButton btn_col3;
     private javax.swing.JButton btn_col4;
     private javax.swing.JButton btn_col5;
+    private javax.swing.JButton btn_finDePartie;
     private javax.swing.JButton btn_li1;
     private javax.swing.JButton btn_li2;
     private javax.swing.JButton btn_li3;
