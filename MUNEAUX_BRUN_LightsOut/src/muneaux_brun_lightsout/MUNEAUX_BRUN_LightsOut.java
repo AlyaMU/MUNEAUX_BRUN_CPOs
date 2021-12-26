@@ -26,8 +26,6 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_nom_bonus.setVisible(true);
         btn_Demarrer.setEnabled(false);
         btn_finDePartie.setEnabled(false);
-        String nomJoueur = nom_joueur.getText();
-        leJoueur.nom = nomJoueur;
         nb_bonus.setText(leJoueur.nbbonus+"");
         nb_coups.setText(leJoueur.nbcoups+"");
         
@@ -399,6 +397,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         nb_coups.setText("nb_coups");
         panneau_chrono_nb_coup.add(nb_coups, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
+        btn_finDePartie.setBackground(new java.awt.Color(255, 255, 255));
+        btn_finDePartie.setForeground(new java.awt.Color(3, 13, 120));
         btn_finDePartie.setText("Fin de partie");
         btn_finDePartie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -533,6 +533,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         panneau_nom_bonus.setVisible(true);
         panneau_grille.repaint();
         nbSecondes = 0;
+        leJoueur.nom = nom_joueur.getText();
         txt_chrono.setText(nbSecondes + "");
         monChrono.start();
     }//GEN-LAST:event_btn_DemarrerActionPerformed
@@ -563,7 +564,6 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
 
     private void nom_joueurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_joueurActionPerformed
         // TODO add your handling code here:
-        leJoueur.nom = nom_joueur.getText();
     }//GEN-LAST:event_nom_joueurActionPerformed
 
     private void btn_col3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col3ActionPerformed
@@ -778,6 +778,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
 
     private void btn_finDePartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finDePartieActionPerformed
         // TODO add your handling code here:
+        leJoueur.nom = nom_joueur.getText();
         FichierLu monFichier = new FichierLu();
         monFichier.creerFichier();
         monFichier.ecrireFichier(leJoueur.nom,leJoueur.nbcoups+"",nbSecondes+"");

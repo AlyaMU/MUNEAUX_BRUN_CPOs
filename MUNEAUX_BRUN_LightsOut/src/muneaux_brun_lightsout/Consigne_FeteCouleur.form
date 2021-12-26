@@ -24,18 +24,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="727" max="-2" attributes="0"/>
-              <EmptySpace pref="119" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="992" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="465" max="-2" attributes="0"/>
-              <EmptySpace pref="50" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="604" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,8 +51,11 @@
         <Component class="javax.swing.JTextArea" name="jTextArea1">
           <Properties>
             <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="0"/>
+            </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#x9;&#x9;&#x9;&#x9;Bonjour &#xe0; toi cher joueur !&#xa;&#xa;Voici les r&#xe8;gles du mode de jeu F&#xea;te Color&#xe9;e&#xa;&#xa;But du jeu :&#xa;&#xa;            - La grille de jeu contient des cases allum&#xe9;es et &#xe9;teintes.&#xa;            - Les lumi&#xe8;res allum&#xe9;es sont de 2 couleurs diff&#xe9;rentes : rouge et jaune.&#xa;            - Vous devez &#xe9;teindre toutes les lumi&#xe8;res le plus rapidement possible.&#xa;&#xa;Fonctionnement du jeu :&#xa;           &#xa;&#x9;- Lorsque vous appuyez sur une case :&#xa;&#x9;               - Elle change d&apos;&#xe9;tat : de &#xe9;teinte vers allum&#xe9;e ou d&apos;allum&#xe9;e vers &#xe9;teinte&#xa;&#x9;               - Ses cases adjacentes changent d&apos;&#xe9;tat &#xe9;galement : celles au dessus, en dessous, &#xe0; droite et &#xe0; gauche&#xa;&#x9;               - Si les cases adjacentes sont d&apos;une couleur diff&#xe9;rente, elle ne change pas d&apos;&#xe9;tat&#xa;&#x9;               - Si vous appuy&#xe9; sur une case &#xe9;teinte, elle deviendra par d&#xe9;faut rouge.&#xa;&#x9;- La partie se termine lorsque toutes les lumi&#xe8;res sont &#xe9;teintes&#xa;&#xa;Fonctionnement des bonus :&#xa;           &#xa;&#x9;- Vous obtenez des bonus al&#xe9;atoirement durant la partie en appuyant sur certains boutons&#xa;&#x9;- Ces bonus sont au nombre de 5 par partie&#xa;&#x9;- Ces bonus permettent d&apos;&#xe9;teindre une ligne ou une colonne&#xa;&#x9;- Pour utiliser ces bonus, il suffit d&apos;appuyer sur le bouton correspondant &#xe0; la ligne ou &#xe0; la colonne souhait&#xe9;e"/>
+            <Property name="text" type="java.lang.String" value="&#x9;&#x9;&#x9;&#x9;                  Bonjour &#xe0; toi cher joueur !&#xa;&#xa;Voici les r&#xe8;gles du mode de jeu F&#xea;te Color&#xe9;e&#xa;&#xa;But du jeu :&#xa;&#xa;            - La grille de jeu contient des cases allum&#xe9;es et &#xe9;teintes.&#xa;            - Les lumi&#xe8;res allum&#xe9;es sont de 2 couleurs diff&#xe9;rentes : rouge et jaune.&#xa;            - Vous devez &#xe9;teindre toutes les lumi&#xe8;res le plus rapidement possible.&#xa;&#xa;Fonctionnement du jeu :&#xa;           &#xa;&#x9;- Lorsque vous appuyez sur une case :&#xa;&#x9;               - Elle change d&apos;&#xe9;tat : de &#xe9;teinte vers allum&#xe9;e ou d&apos;allum&#xe9;e vers &#xe9;teinte&#xa;&#x9;               - Ses cases adjacentes changent d&apos;&#xe9;tat &#xe9;galement : celles au dessus, en dessous, &#xe0; droite et &#xe0; gauche&#xa;&#x9;               - Si les cases adjacentes sont d&apos;une couleur diff&#xe9;rente, elle ne change pas d&apos;&#xe9;tat&#xa;&#x9;               - Si vous appuy&#xe9; sur une case &#xe9;teinte, elle deviendra par d&#xe9;faut rouge.&#xa;&#x9;- La partie se termine lorsque toutes les lumi&#xe8;res sont &#xe9;teintes&#xa;&#xa;Fonctionnement des bonus :&#xa;           &#xa;&#x9;- Vous obtenez des bonus al&#xe9;atoirement durant la partie en appuyant sur certaines cases&#xa;&#x9;- Ces bonus sont au nombre de 5 par partie&#xa;&#x9;- Ces bonus permettent d&apos;&#xe9;teindre une ligne ou une colonne&#xa;&#x9;- Pour utiliser ces bonus, il suffit d&apos;appuyer sur le bouton correspondant &#xe0; la ligne ou &#xe0; la colonne souhait&#xe9;e&#xa;&#xa;Consignes suppl&#xe9;mentaires : Comment lancer la partie&#xa;&#xa;&#x9;- Appuyez sur le bouton correspondant au mode de jeu souhait&#xe9;&#xa;&#x9;- Une fen&#xea;tre de consigne s&apos;affiche, fermez-la lorsque vous l&apos;avez lue&#xa;&#x9;- Entrer votre nom &#xe0; l&apos;endroit pr&#xe9;vu &#xe0; cet effet (encare blanc &#xe0; droite de &quot;Nom du joueur&quot;)&#xa;&#x9;- Appuyez sur le bouton &quot;d&#xe9;marrer la partie&quot; APRES avoir entr&#xe9; votre nom (sans cela, le jeu risque de ne pas se souvenir de vous :( )&#xa;&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;      Bonne Partie !"/>
           </Properties>
         </Component>
       </SubComponents>

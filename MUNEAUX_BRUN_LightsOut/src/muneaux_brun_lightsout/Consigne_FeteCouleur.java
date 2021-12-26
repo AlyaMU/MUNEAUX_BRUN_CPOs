@@ -33,8 +33,9 @@ public class Consigne_FeteCouleur extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("\t\t\t\tBonjour à toi cher joueur !\n\nVoici les règles du mode de jeu Fête Colorée\n\nBut du jeu :\n\n            - La grille de jeu contient des cases allumées et éteintes.\n            - Les lumières allumées sont de 2 couleurs différentes : rouge et jaune.\n            - Vous devez éteindre toutes les lumières le plus rapidement possible.\n\nFonctionnement du jeu :\n           \n\t- Lorsque vous appuyez sur une case :\n\t               - Elle change d'état : de éteinte vers allumée ou d'allumée vers éteinte\n\t               - Ses cases adjacentes changent d'état également : celles au dessus, en dessous, à droite et à gauche\n\t               - Si les cases adjacentes sont d'une couleur différente, elle ne change pas d'état\n\t               - Si vous appuyé sur une case éteinte, elle deviendra par défaut rouge.\n\t- La partie se termine lorsque toutes les lumières sont éteintes\n\nFonctionnement des bonus :\n           \n\t- Vous obtenez des bonus aléatoirement durant la partie en appuyant sur certains boutons\n\t- Ces bonus sont au nombre de 5 par partie\n\t- Ces bonus permettent d'éteindre une ligne ou une colonne\n\t- Pour utiliser ces bonus, il suffit d'appuyer sur le bouton correspondant à la ligne ou à la colonne souhaitée");
+        jTextArea1.setText("\t\t\t\t                  Bonjour à toi cher joueur !\n\nVoici les règles du mode de jeu Fête Colorée\n\nBut du jeu :\n\n            - La grille de jeu contient des cases allumées et éteintes.\n            - Les lumières allumées sont de 2 couleurs différentes : rouge et jaune.\n            - Vous devez éteindre toutes les lumières le plus rapidement possible.\n\nFonctionnement du jeu :\n           \n\t- Lorsque vous appuyez sur une case :\n\t               - Elle change d'état : de éteinte vers allumée ou d'allumée vers éteinte\n\t               - Ses cases adjacentes changent d'état également : celles au dessus, en dessous, à droite et à gauche\n\t               - Si les cases adjacentes sont d'une couleur différente, elle ne change pas d'état\n\t               - Si vous appuyé sur une case éteinte, elle deviendra par défaut rouge.\n\t- La partie se termine lorsque toutes les lumières sont éteintes\n\nFonctionnement des bonus :\n           \n\t- Vous obtenez des bonus aléatoirement durant la partie en appuyant sur certaines cases\n\t- Ces bonus sont au nombre de 5 par partie\n\t- Ces bonus permettent d'éteindre une ligne ou une colonne\n\t- Pour utiliser ces bonus, il suffit d'appuyer sur le bouton correspondant à la ligne ou à la colonne souhaitée\n\nConsignes supplémentaires : Comment lancer la partie\n\n\t- Appuyez sur le bouton correspondant au mode de jeu souhaité\n\t- Une fenêtre de consigne s'affiche, fermez-la lorsque vous l'avez lue\n\t- Entrer votre nom à l'endroit prévu à cet effet (encare blanc à droite de \"Nom du joueur\")\n\t- Appuyez sur le bouton \"démarrer la partie\" APRES avoir entré votre nom (sans cela, le jeu risque de ne pas se souvenir de vous :( )\n\n\t\t\t\t\t\n\t\t\t\t\t      Bonne Partie !");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -42,16 +43,16 @@ public class Consigne_FeteCouleur extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
 
         pack();
