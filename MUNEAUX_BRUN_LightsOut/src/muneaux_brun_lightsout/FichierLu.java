@@ -31,9 +31,9 @@ public class FichierLu extends FichierEcrit {
                     nomsJoueurs = data;
                 }
                 else if (compteur % 4 == 0) { // Le chiffre lu correspond a un nombre de secondes
-                    chronoParties.add(nomsJoueurs + " " + data);
+                    chronoParties.add(data + " " + nomsJoueurs);
                 } else {
-                    coupsParties.add(nomsJoueurs + " " + data);
+                    coupsParties.add(data + " " + nomsJoueurs);
                 }
                 compteur += 1;
             }
