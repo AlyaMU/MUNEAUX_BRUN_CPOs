@@ -39,8 +39,10 @@ public class FichierLu extends FichierEcrit {
             }
             Collections.sort(coupsParties);
             Collections.sort(chronoParties);
+            System.out.println("Meilleurs coups");
             System.out.println(coupsParties);
             System.out.println(chronoParties);
+            System.out.println("Meilleurs temps");
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
