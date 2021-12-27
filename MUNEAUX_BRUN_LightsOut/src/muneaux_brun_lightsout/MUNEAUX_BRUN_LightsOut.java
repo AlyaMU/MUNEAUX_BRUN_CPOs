@@ -206,6 +206,16 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                                     tabCases[i][j].setEnabled(false);
                                 }
                             }
+                            btn_col1.setEnabled(false);
+                            btn_col2.setEnabled(false);
+                            btn_col3.setEnabled(false);
+                            btn_col4.setEnabled(false);
+                            btn_col5.setEnabled(false);
+                            btn_li1.setEnabled(false);
+                            btn_li2.setEnabled(false);
+                            btn_li3.setEnabled(false);
+                            btn_li4.setEnabled(false);
+                            btn_li5.setEnabled(false);
                             Fenetre_Victoire victoire = new Fenetre_Victoire();
                             victoire.setVisible(true);
                         }
@@ -227,6 +237,16 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                     }
                 }
                 monChrono.stop();
+                btn_col1.setEnabled(false);
+                btn_col2.setEnabled(false);
+                btn_col3.setEnabled(false);
+                btn_col4.setEnabled(false);
+                btn_col5.setEnabled(false);
+                btn_li1.setEnabled(false);
+                btn_li2.setEnabled(false);
+                btn_li3.setEnabled(false);
+                btn_li4.setEnabled(false);
+                btn_li5.setEnabled(false);
                 Fenetre_Defaite defaite = new Fenetre_Defaite();
                 defaite.setVisible(true);
                 panneau_grille.repaint();
