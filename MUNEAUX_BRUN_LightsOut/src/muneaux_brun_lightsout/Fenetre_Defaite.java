@@ -26,33 +26,29 @@ public class Fenetre_Defaite extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        defaite_texte = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        defaite_texte1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        defaite_texte.setColumns(20);
-        defaite_texte.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        defaite_texte.setRows(5);
-        defaite_texte.setText("\t\t                  Bien tenté mais vous avez échoué cher joueur\n\nVous n'avez cependant pas démérité.\n\nVous pouvez rejouer pour vaincre le temps ou faire autre chose.\n\nVous devriez sortir pour digérer votre défaite, cela vous évitera de faire de mauvaises choses comme casser votre ordinateur.\n\nJ'oubliais, bonne année également cher joueur !\n\nVos nouvelles résolutions seront peut-être de vaincre le temps\n\n\t\t              Au plaisir de vous revoir pour une nouvelle partie");
-        jScrollPane1.setViewportView(defaite_texte);
+        defaite_texte1.setColumns(20);
+        defaite_texte1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        defaite_texte1.setRows(5);
+        defaite_texte1.setText("\n\n\n\t\t                  Bien tenté mais vous avez échoué cher joueur.\n\nVous n'avez cependant pas démérité.\n\nVous pouvez rejouer pour vaincre le temps ou faire autre chose.\n\nVous devriez sortir pour digérer votre défaite, cela vous évitera de faire de mauvaises choses comme casser votre ordinateur.\n\nJ'oubliais, bonne année également cher joueur !\n\nVos nouvelles résolutions seront peut-être de vaincre le temps\n\n    \n\t\t                Au plaisir de vous revoir pour une nouvelle partie");
+        jScrollPane2.setViewportView(defaite_texte1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -94,7 +90,7 @@ public class Fenetre_Defaite extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea defaite_texte;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea defaite_texte1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

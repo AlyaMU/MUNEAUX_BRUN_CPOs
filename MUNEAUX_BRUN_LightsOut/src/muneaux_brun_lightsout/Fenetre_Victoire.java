@@ -36,10 +36,10 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("\t\t\t             Bravo cher joueur !\n\nVous avez vaillement triomphé de cette épreuve !\n\nVous pouvez rejouer pour améliorer votre score ou faire autre chose.\n\nVous devriez sortir prendre l'air et vous reposer, la santé c'est important.\n\nJ'oubliais, bonne année également cher joueur !\n\n\t\t              Au plaisir de vous revoir pour une nouvelle partie");
+        jTextArea1.setText("\n\n\n\n\t\t\t             Bravo cher joueur !\n\n\nVous avez vaillement triomphé de cette épreuve !\n\nVous pouvez rejouer pour améliorer votre score ou faire autre chose.\n\nVous devriez sortir prendre l'air et vous reposer, la santé c'est important.\n\nJ'oubliais, bonne année également cher joueur !\n\n\n\t\t              Au plaisir de vous revoir pour une nouvelle partie");
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 760, 220));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

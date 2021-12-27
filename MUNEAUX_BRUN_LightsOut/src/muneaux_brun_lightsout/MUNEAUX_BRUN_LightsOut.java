@@ -303,6 +303,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panneau_grille.setBackground(new java.awt.Color(255, 255, 255));
@@ -530,7 +531,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
         getContentPane().add(btn_li5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 40, 100));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 770));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, -90, 1210, 780));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
