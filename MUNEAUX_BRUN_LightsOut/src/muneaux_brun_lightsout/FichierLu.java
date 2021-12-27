@@ -17,8 +17,8 @@ import java.util.Collections;
 public class FichierLu extends FichierEcrit {
 
     String nomsJoueurs = "";
-    ArrayList<String> coupsParties = new ArrayList<String>();
-    ArrayList<String> chronoParties = new ArrayList<String>();
+    public ArrayList<String> coupsParties = new ArrayList<String>();
+    public ArrayList<String> chronoParties = new ArrayList<String>();
 
     void lireFichier() {
         int compteur = 1;
@@ -31,21 +31,29 @@ public class FichierLu extends FichierEcrit {
                     nomsJoueurs = data;
                 }
                 else if (compteur % 4 == 0) { // Le chiffre lu correspond a un nombre de secondes
-                    chronoParties.add(nomsJoueurs + " " + data);
+                    chronoParties.add(data + "                  " + nomsJoueurs);
                 } else {
-                    coupsParties.add(nomsJoueurs + " " + data);
+                    coupsParties.add(data + "                  " + nomsJoueurs);
                 }
                 compteur += 1;
             }
             Collections.sort(coupsParties);
             Collections.sort(chronoParties);
+            System.out.println("Meilleurs coups");
             System.out.println(coupsParties);
             System.out.println(chronoParties);
+            System.out.println("Meilleurs temps");
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+    ArrayList envoieCoupsPartie(){
+        return(coupsParties);
+    }
+    ArrayList envoieChronoParties(){
+        return(coupsParties);
     }
 
 }

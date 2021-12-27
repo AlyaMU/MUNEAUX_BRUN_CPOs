@@ -779,10 +779,8 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
     private void btn_finDePartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finDePartieActionPerformed
         // TODO add your handling code here:
         leJoueur.nom = nom_joueur.getText();
-        FichierLu monFichier = new FichierLu();
-        monFichier.creerFichier();
-        monFichier.ecrireFichier(leJoueur.nom,leJoueur.nbcoups+"",nbSecondes+"");
-        monFichier.lireFichier();
+        Tableaux_scores scores = new Tableaux_scores(leJoueur.nom,leJoueur.nbcoups,nbSecondes);
+        scores.setVisible(true);
     }//GEN-LAST:event_btn_finDePartieActionPerformed
 
     /**
