@@ -35,7 +35,7 @@ public class Fenetre_Defaite extends javax.swing.JFrame {
         defaite_texte1.setColumns(20);
         defaite_texte1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         defaite_texte1.setRows(5);
-        defaite_texte1.setText("\n\n\n\t\t                  Bien tenté mais vous avez échoué cher joueur.\n\nVous n'avez cependant pas démérité.\n\nVous pouvez rejouer pour vaincre le temps ou faire autre chose.\n\nVous devriez sortir pour digérer votre défaite, cela vous évitera de faire de mauvaises choses comme casser votre ordinateur.\n\nJ'oubliais, bonne année également cher joueur !\n\nVos nouvelles résolutions seront peut-être de vaincre le temps\n\n    \n\t\t                Au plaisir de vous revoir pour une nouvelle partie");
+        defaite_texte1.setText("\n\n\n\t\t                  Bien tenté mais vous avez échoué cher joueur.\n\nVous n'avez cependant pas démérité.\n\nVous pouvez rejouer pour vaincre le temps ou faire autre chose.\n\nVous devriez sortir pour digérer votre défaite, cela vous évitera de faire de mauvaises choses comme casser votre ordinateur.\n\nJ'oubliais, bonne année également cher joueur !\n\nVos nouvelles résolutions seront peut-être de vaincre le temps...\n\nPour enregistrer votre score et ouvrir les tableaux des 10 meilleurs joueurs, veuillez appuyez sur le bouton \"Fin de Partie\" de la \nfenêtre de jeu et fermer cette fenêtre.\n    \n\t\t                Au plaisir de vous revoir pour une nouvelle partie !");
         jScrollPane2.setViewportView(defaite_texte1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

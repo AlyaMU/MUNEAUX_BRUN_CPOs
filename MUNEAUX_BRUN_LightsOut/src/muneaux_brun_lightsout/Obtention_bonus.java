@@ -35,14 +35,14 @@ public class Obtention_bonus extends javax.swing.JFrame {
         bonus.setColumns(20);
         bonus.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         bonus.setRows(5);
-        bonus.setText("         \n\n\n\n            Vous avez obtenu un bonus !");
+        bonus.setText("         \n\n\n               Vous avez obtenu un bonus !\n\n   (Appuyer sur un des boutons pour éteindre \n        toute une ligne ou toute une colonne)");
         jScrollPane1.setViewportView(bonus);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

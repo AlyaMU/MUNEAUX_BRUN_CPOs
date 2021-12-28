@@ -26,7 +26,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="386" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" alignment="0" pref="413" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -50,7 +50,7 @@
               <Font name="Arial" size="18" style="1"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="         &#xa;&#xa;&#xa;&#xa;            Vous avez obtenu un bonus !"/>
+            <Property name="text" type="java.lang.String" value="         &#xa;&#xa;&#xa;               Vous avez obtenu un bonus !&#xa;&#xa;   (Appuyer sur un des boutons pour &#xe9;teindre &#xa;        toute une ligne ou toute une colonne)"/>
           </Properties>
         </Component>
       </SubComponents>
