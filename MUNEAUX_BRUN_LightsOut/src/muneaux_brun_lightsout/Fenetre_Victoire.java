@@ -39,7 +39,7 @@ public class Fenetre_Victoire extends javax.swing.JFrame {
         jTextArea1.setText("\n\n\n\t\t\t\tBravo cher joueur !\n\n\nVous avez vaillement triomphé de cette épreuve !\n\nVous pouvez rejouer pour améliorer votre score ou faire autre chose.\n\nVous devriez sortir prendre l'air et vous reposer, la santé c'est important.\n\nJ'oubliais, bonne année également cher joueur !\n\nPour enregistrer votre score et ouvrir les tableaux des 10 meilleurs joueurs, veuillez appuyez sur le bouton \"Fin de Partie\" de \nla fenêtre de jeu et fermer cette fenêtre.\n\n\n\t\t                Au plaisir de vous revoir pour une nouvelle partie !");
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
