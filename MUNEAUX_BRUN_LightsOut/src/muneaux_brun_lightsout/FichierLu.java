@@ -53,7 +53,7 @@ public class FichierLu extends FichierEcrit {
         return(coupsParties);
     }
     ArrayList envoieChronoParties(){
-        return(coupsParties);
+        return(chronoParties);
     }
 
 }

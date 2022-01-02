@@ -32,7 +32,7 @@ public class Tableaux_scores extends javax.swing.JFrame {
         ArrayList<String> newCoupsParties = new ArrayList<String>();
         newCoupsParties = monFichier.envoieCoupsPartie();
         ArrayList<String> newChronoParties = new ArrayList<String>();
-        newChronoParties = monFichier.envoieCoupsPartie();
+        newChronoParties = monFichier.envoieChronoParties();
         if (newChronoParties.size()==1 && newCoupsParties.size()==1){
             String sec1 = newChronoParties.get(0);
             nb_sec1.setText(sec1);
