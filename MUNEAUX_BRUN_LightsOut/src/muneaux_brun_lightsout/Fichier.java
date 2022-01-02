@@ -13,6 +13,9 @@ import java.io.IOException;  // Import the IOException class to handle errors
 
 public class Fichier {
     
+    // Ajout source de création du fichier :
+    // https://www.w3schools.com/java/java_files_create.asp
+    
     void creerFichier () {
     try {
       File myObj = new File("FichierLightsOut.txt");
