@@ -34,7 +34,7 @@ public class FichierLu extends FichierEcrit {
                     Integer res = Integer.valueOf(data);
                     if (res < 10) {
                         data = "0" + data;
-                        System.out.println("Chiffre modifié : " + data);
+                        //System.out.println("Chiffre modifié : " + data);
                     }
                     String tempsTab = data + "                  " + nomsJoueurs;
                     chronoParties.add(tempsTab);
@@ -42,7 +42,7 @@ public class FichierLu extends FichierEcrit {
                     Integer res = Integer.valueOf(data);
                     if (res < 10) {
                         data = "0" + data;
-                        System.out.println("Chiffre modifié : " + data);
+                        //System.out.println("Chiffre modifié : " + data);
                     }
                     String coupsTab = data + "                  " + nomsJoueurs;
                     coupsParties.add(coupsTab);

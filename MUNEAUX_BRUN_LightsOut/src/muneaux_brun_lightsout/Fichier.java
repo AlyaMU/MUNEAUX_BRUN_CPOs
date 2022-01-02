@@ -20,9 +20,9 @@ public class Fichier {
     try {
       File myObj = new File("FichierLightsOut.txt");
       if (myObj.createNewFile()) {
-        System.out.println("File created: " + myObj.getName());
+        System.out.println("\n File created: " + myObj.getName());
       } else {
-        System.out.println("File already exists.");
+        System.out.println("\n File already exists.");
       }
     } catch (IOException e) {
       System.out.println("An error occurred.");

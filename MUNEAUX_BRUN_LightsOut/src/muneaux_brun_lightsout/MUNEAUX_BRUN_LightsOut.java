@@ -195,7 +195,7 @@ public class MUNEAUX_BRUN_LightsOut extends javax.swing.JFrame {
                         }
                         nb_bonus.setText(leJoueur.nbbonus+"");
                         nb_coups.setText(leJoueur.nbcoups+"");
-                        grilleTest.afficherGrilleSurConsole();
+                        //grilleTest.afficherGrilleSurConsole();
                         panneau_grille.repaint();
                         if (true == grilleTest.grilleGagnante()) {
                             monChrono.stop();

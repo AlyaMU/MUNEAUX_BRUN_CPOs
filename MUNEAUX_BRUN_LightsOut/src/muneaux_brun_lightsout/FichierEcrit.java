@@ -20,7 +20,7 @@ public class FichierEcrit extends Fichier {
       myWriter.write(unNom + "\n");
       myWriter.write(nbSecondes + "\n");
       myWriter.close();
-      System.out.println("Successfully wrote to the file.");
+      //System.out.println("Successfully wrote to the file.");
     } catch (IOException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
