@@ -31,9 +31,21 @@ public class FichierLu extends FichierEcrit {
                     nomsJoueurs = data;
                 }
                 else if (compteur % 4 == 0) { // Le chiffre lu correspond a un nombre de secondes
-                    chronoParties.add(data + "                  " + nomsJoueurs);
+                    Integer res = Integer.valueOf(data);
+                    if (res < 10) {
+                        data = "0" + data;
+                        System.out.println("Chiffre modifié : " + data);
+                    }
+                    String tempsTab = data + "                  " + nomsJoueurs;
+                    chronoParties.add(tempsTab);
                 } else {
-                    coupsParties.add(data + "                  " + nomsJoueurs);
+                    Integer res = Integer.valueOf(data);
+                    if (res < 10) {
+                        data = "0" + data;
+                        System.out.println("Chiffre modifié : " + data);
+                    }
+                    String coupsTab = data + "                  " + nomsJoueurs;
+                    coupsParties.add(coupsTab);
                 }
                 compteur += 1;
             }
